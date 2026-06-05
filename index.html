@@ -1207,20 +1207,11 @@
           <ul>
             ${t.noticeEtiquetteItems.map(item => `<li>${item}</li>`).join('')}
           </ul>
-          ${pageLang === 'ko' ? `
-          <div class="multilang-text">
-            <p><span class="lang-label">EN</span> Please keep conversations at a low volume and refrain from phone calls.</p>
-            <p><span class="lang-label">ZH</span> 请保持低声交谈，请勿在店内接打电话。</p>
-          </div>` : ''}
         </div>
 
         <div class="notice-card">
           <h4><span data-translate="noticeCctv">${t.noticeCctv}</span></h4>
           <p data-translate="noticeCctvText">${t.noticeCctvText}</p>
-          <div class="multilang-text">
-            <p><span class="lang-label">EN</span> ${t.noticeCctvEn}</p>
-            <p><span class="lang-label">ZH</span> ${t.noticeCctvZh}</p>
-          </div>
         </div>
       `;
         }

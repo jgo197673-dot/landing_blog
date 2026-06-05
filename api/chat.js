@@ -70,6 +70,7 @@ export default async function handler(req, res) {
 ## 예약/문의
 - WeChat 문의 가능
 - 전화 문의: 010-7365-0623
+- 네이버 예약 가능: https://booking.naver.com/booking/13/bizes/1011635?theme=place&entry=pll&lang=ko&area=pll
 - 100% 예약제 운영, 당일 예약 문의 가능
 
 ## 주차

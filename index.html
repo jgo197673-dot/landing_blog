@@ -824,7 +824,7 @@
                 contactAddress: '📍 제주특별자치도 제주시 연동, 연북로 158 2층 (AUBE)',
                 contactPhone: '📞 전화: <a href="tel:010-7365-0623" style="color: #c48c65; text-decoration: none;">010-7365-0623</a>',
                 contactHours: '🕐 운영시간: 오전 10시부터 영업',
-                contactButton: '전화 예약하기',
+                contactButton: '예약하기',
                 // Footer
                 footerTitle: '오브래쉬 AUBE',
                 footerAddress: '제주특별자치도 제주시 연북로 158 2층',
@@ -868,7 +868,7 @@
                 contactAddress: '📍 2F, 158 Yeonbuk-ro, Yeon-dong, Jeju City, Jeju (AUBE)',
                 contactPhone: '📞 Phone: <a href="tel:010-7365-0623" style="color: #c48c65; text-decoration: none;">010-7365-0623</a>',
                 contactHours: '🕐 Hours: Open from 10 AM',
-                contactButton: 'Call to Book',
+                contactButton: 'Book Now',
                 footerTitle: 'AUBE Lash Studio',
                 footerAddress: '2F, 158 Yeonbuk-ro, Jeju City, Jeju',
                 footerInfo: 'Tel: 010-7365-0623 | Hours: From 10 AM (Reservation Only)'
@@ -911,7 +911,7 @@
                 contactAddress: '📍 济州特别自治道济州市莲洞莲北路158号2楼 (AUBE)',
                 contactPhone: '📞 电话: <a href="tel:010-7365-0623" style="color: #c48c65; text-decoration: none;">010-7365-0623</a>',
                 contactHours: '🕐 营业时间: 上午10点开始',
-                contactButton: '电话预约',
+                contactButton: '立即预约',
                 footerTitle: 'AUBE 美睫沙龙',
                 footerAddress: '济州特别自治道济州市莲北路158号2楼',
                 footerInfo: '电话: 010-7365-0623 | 营业时间: 上午10点开始 (预约制)'
@@ -968,7 +968,7 @@
                 'LED 포인트 연장',
                 '뷰티 케어'
             ],
-            booking: 'WeChat 문의 또는 전화 문의 (010-7365-0623)',
+            booking: 'WeChat 문의, 전화 문의 (010-7365-0623), 또는 네이버 예약 (https://booking.naver.com/booking/13/bizes/1011635?theme=place&entry=pll&lang=ko&area=pll)',
             parking: '전용 주차장은 없으나, 건물 앞 공영주차장 이용 가능 (1시간 무료)',
             etiquette: [
                 '큰 소리의 대화 자제',
@@ -1126,7 +1126,9 @@
         contactP3.innerHTML = `<span data-translate="contactHours">${pageTranslations[pageLang].contactHours}</span>`;
         const contactP4 = createElement('p', { style: 'margin-top: 30px;' });
         const contactBtn = createElement('a', { 
-            href: 'tel:010-7365-0623',
+            href: 'https://booking.naver.com/booking/13/bizes/1011635?theme=place&entry=pll&lang=ko&area=pll',
+            target: '_blank',
+            rel: 'noopener noreferrer',
             style: 'display: inline-block; padding: 14px 30px; background: #c48c65; color: #fff; text-decoration: none; border-radius: 30px; font-weight: 600;',
             'data-translate': 'contactButton'
         }, pageTranslations[pageLang].contactButton);

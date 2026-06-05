@@ -7,6 +7,8 @@
     <title>오브래쉬 AUBE | 제주 속눈썹 펌 &amp; 연장 전문</title>
     <meta name="description" content="제주 연동에 위치한 속눈썹 펌 &amp; LED 포인트 연장 전문샵 오브래쉬. 자연스러우면서도 확실히 다른 눈매를 경험하세요.">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&family=Noto+Serif+KR:wght@300;400;500&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -14,23 +16,44 @@
         }
 
         body {
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background-color: #ffffff;
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Outfit', 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #faf6f0;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(243, 218, 203, 0.45) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(243, 218, 203, 0.3) 0%, transparent 50%);
+            background-attachment: fixed;
+            color: #4a423a;
+            line-height: 1.8;
+            letter-spacing: -0.01em;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Leaf shadow overlay */
+        .leaf-shadow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.025" fill="%238e6d50"><path d="M150,0 C200,80 220,150 180,220 C150,270 90,300 30,320 C80,260 110,180 100,100 Z"/><path d="M300,50 C340,110 350,170 310,220 C280,260 220,280 170,290 C210,240 230,170 210,110 Z"/><path d="M50,150 C100,210 130,280 100,350 C70,400 10,420 -40,430 C10,370 30,290 10,220 Z"/></svg>');
+            background-size: 400px 400px;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 0;
         }
 
         header {
-            background: linear-gradient(to right, #fffaf5, #fff);
+            background: #faf6f0;
             text-align: center;
-            padding: 50px 20px 40px;
-            border-bottom: 1px solid #f3eae2;
+            padding: 70px 20px 50px;
+            border-bottom: 1px solid #e5d9cd;
             position: relative;
         }
 
         .lang-selector-top {
             position: absolute;
-            top: 20px;
+            top: 30px;
             right: 20px;
             display: flex;
             gap: 8px;
@@ -38,24 +61,29 @@
         }
 
         .lang-btn {
-            padding: 8px 16px;
-            border: 1px solid #c48c65;
-            background: #fff;
-            color: #c48c65;
-            border-radius: 20px;
-            font-size: 0.85rem;
+            padding: 6px 14px;
+            border: 1px solid #dcd5cc;
+            background: rgba(255, 255, 255, 0.85);
+            color: #8c7f72;
+            border-radius: 8px;
+            font-size: 0.8rem;
             cursor: pointer;
             transition: all 0.3s;
-            font-weight: 500;
+            font-weight: 400;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 0.5px;
         }
 
         .lang-btn:hover {
-            background: #fffaf5;
+            background: #faf6f0;
+            color: #c48c65;
+            border-color: #c48c65;
         }
 
         .lang-btn.active {
             background: #c48c65;
             color: #fff;
+            border-color: #c48c65;
         }
 
         header .logo-container {
@@ -76,40 +104,51 @@
         
         header .logo-container::before {
             content: "AUBE";
-            font-size: 2rem;
-            font-weight: 700;
-            color: #c48c65;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #8e6d50;
+            letter-spacing: 0.2em;
             display: block;
         }
 
         header h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #2b2b2b;
-            margin-bottom: 10px;
+            font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: #8e6d50;
+            letter-spacing: 0.1em;
+            margin-bottom: 15px;
         }
 
         header p {
-            font-size: 1.1rem;
-            color: #666;
+            font-size: 1.02rem;
+            color: #8c7f72;
+            font-family: 'Outfit', 'Pretendard', sans-serif;
+            font-weight: 300;
+            letter-spacing: 0.5px;
         }
 
         nav {
             display: flex;
             justify-content: center;
-            background: #fff;
-            border-bottom: 1px solid #eee;
+            background: #faf6f0;
+            border-bottom: 1px solid #e5d9cd;
             position: sticky;
             top: 0;
             z-index: 10;
         }
 
         nav a {
-            padding: 15px 25px;
+            padding: 16px 25px;
             text-decoration: none;
-            color: #444;
-            font-weight: 500;
+            color: #7a6e62;
+            font-weight: 400;
+            font-size: 0.92rem;
+            letter-spacing: 0.08em;
+            font-family: 'Outfit', sans-serif;
             transition: color 0.3s;
+            text-transform: uppercase;
         }
 
         nav a:hover {
@@ -122,22 +161,23 @@
             background-position: center;
             background-repeat: no-repeat;
             background-color: #c48c65;
-            min-height: 70vh;
+            min-height: 55vh;
             height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #fff;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
             position: relative;
             overflow: hidden;
+            border-bottom: 1px solid #e5d9cd;
         }
         
         section.hero::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(196, 140, 101, 0.4) 0%, rgba(176, 122, 84, 0.5) 100%);
+            background: linear-gradient(135deg, rgba(196, 140, 101, 0.3) 0%, rgba(176, 122, 84, 0.4) 100%);
             z-index: 0;
         }
 
@@ -145,13 +185,15 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.25);
+            background: rgba(0, 0, 0, 0.15);
             z-index: 0;
         }
 
         section.hero h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
+            font-size: 2.8rem;
+            font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+            font-weight: 300;
+            letter-spacing: 0.15em;
             z-index: 2;
             position: relative;
             text-align: center;
@@ -159,21 +201,26 @@
         }
 
         section {
-            padding: 70px 20px;
+            padding: 90px 20px;
             max-width: 1000px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         section h3 {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            color: #2b2b2b;
+            font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+            font-size: 2rem;
+            font-weight: 300;
+            color: #8e6d50;
+            margin-bottom: 40px;
+            letter-spacing: 0.1em;
             text-align: center;
         }
 
         section p {
             font-size: 1rem;
-            color: #555;
+            color: #5a5046;
             line-height: 1.8;
         }
 
@@ -184,90 +231,116 @@
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 35px;
             margin: 50px 0;
         }
 
         .info-card {
-            background: #fffaf5;
+            background: #ffffff;
             padding: 35px;
-            border-radius: 12px;
-            border: 1px solid #f3eae2;
+            border-radius: 8px;
+            border: 1px solid #e5d9cd;
+            position: relative;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
+        .info-card::before {
+            content: "";
+            position: absolute;
+            top: 6px;
+            bottom: 6px;
+            left: 6px;
+            right: 6px;
+            border: 1px solid #f2e9df;
+            border-radius: 4px;
+            pointer-events: none;
+        }
+
         .info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 20px rgba(196, 140, 101, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(142, 109, 80, 0.06);
         }
 
         .info-card h4 {
-            font-size: 1.3rem;
+            font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #8e6d50;
+            letter-spacing: 0.05em;
             margin-bottom: 15px;
-            color: #2b2b2b;
         }
 
         .info-card p {
             font-size: 0.95rem;
-            color: #666;
+            color: #5a5046;
             margin: 0;
+            line-height: 1.7;
         }
 
         /* ===== WeChat Section ===== */
         .wechat-section {
-            background: linear-gradient(135deg, #fffaf5 0%, #fff 100%);
-            border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(196, 140, 101, 0.1);
-            padding: 50px 30px;
+            background: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #e5d9cd;
+            padding: 50px 40px;
             margin-top: 10px;
             text-align: center;
-            border: 1px solid #f3eae2;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(46, 38, 32, 0.02);
+        }
+
+        .wechat-section::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            bottom: 8px;
+            left: 8px;
+            right: 8px;
+            border: 1px solid #f2e9df;
+            border-radius: 4px;
+            pointer-events: none;
         }
 
         .wechat-section h3 {
             margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
         }
 
         .wechat-section .wechat-desc {
-            color: #777;
+            color: #8c7f72;
             font-size: 0.95rem;
             margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
         }
 
         .wechat-qr-area {
             display: inline-block;
             background: #fff;
-            border: 2px dashed #e0d0c0;
-            border-radius: 16px;
-            padding: 25px;
+            border: 1px solid #e5d9cd;
+            border-radius: 6px;
+            padding: 15px;
             margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
         }
 
         .wechat-qr-area img {
             width: 180px;
             height: 180px;
             display: block;
-            border-radius: 8px;
-        }
-
-        .wechat-qr-placeholder {
-            width: 180px;
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #f9f4ef;
-            border-radius: 8px;
-            color: #b0956e;
-            font-size: 0.85rem;
-            text-align: center;
-            line-height: 1.4;
+            border-radius: 2px;
         }
 
         .wechat-id-text {
             font-size: 0.9rem;
-            color: #999;
+            color: #8c7f72;
             margin-top: 10px;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 2;
         }
 
         .social-buttons {
@@ -276,74 +349,100 @@
             justify-content: center;
             flex-wrap: wrap;
             margin-top: 25px;
+            position: relative;
+            z-index: 2;
         }
 
         .social-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 14px 28px;
-            border-radius: 30px;
+            padding: 12px 26px;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
+            font-weight: 500;
+            font-size: 0.9rem;
             transition: all 0.3s;
-            border: none;
             cursor: pointer;
+            border: 1px solid transparent;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: 0.5px;
         }
 
         .social-btn.wechat {
-            background: #07c160;
-            color: #fff;
+            background: #f1f9f2;
+            color: #276f3d;
+            border-color: #d1ebd8;
         }
 
         .social-btn.wechat:hover {
-            background: #06ad56;
+            background: #e1f2e5;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(7, 193, 96, 0.3);
+            box-shadow: 0 4px 12px rgba(39, 111, 61, 0.08);
         }
 
         .social-btn.xiaohongshu {
-            background: #ff2442;
-            color: #fff;
+            background: #fff0f1;
+            color: #c92c3a;
+            border-color: #ffd2d5;
         }
 
         .social-btn.xiaohongshu:hover {
-            background: #e01f3b;
+            background: #ffe0e3;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255, 36, 66, 0.3);
+            box-shadow: 0 4px 12px rgba(201, 44, 58, 0.08);
         }
 
         .social-btn.instagram {
-            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-            color: #fff;
+            background: #faf6f0;
+            color: #c48c65;
+            border-color: #e5d9cd;
         }
 
         .social-btn.instagram:hover {
+            background: #f5efe6;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(131, 58, 180, 0.3);
+            box-shadow: 0 4px 12px rgba(196, 140, 101, 0.08);
         }
 
         /* ===== Notice Cards ===== */
         .notice-card {
-            background: #fffaf5;
-            border-radius: 14px;
+            background: #ffffff;
+            border-radius: 8px;
             padding: 35px;
-            border: 1px solid #f3eae2;
+            border: 1px solid #e5d9cd;
             margin-bottom: 25px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(46, 38, 32, 0.02);
+        }
+
+        .notice-card::before {
+            content: "";
+            position: absolute;
+            top: 6px;
+            bottom: 6px;
+            left: 6px;
+            right: 6px;
+            border: 1px solid #f2e9df;
+            border-radius: 4px;
+            pointer-events: none;
         }
 
         .notice-card h4 {
-            font-size: 1.2rem;
-            color: #2b2b2b;
-            margin-bottom: 15px;
+            font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #8e6d50;
+            letter-spacing: 0.05em;
+            margin-bottom: 18px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
         .notice-card .notice-icon {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
+            display: inline-block;
         }
 
         .notice-card ul {
@@ -354,30 +453,32 @@
 
         .notice-card ul li {
             padding: 8px 0;
-            color: #555;
+            color: #5a5046;
             font-size: 0.95rem;
             position: relative;
             padding-left: 20px;
+            line-height: 1.7;
         }
 
         .notice-card ul li::before {
-            content: "•";
+            content: "✦";
             color: #c48c65;
-            font-weight: bold;
+            font-size: 0.7rem;
             position: absolute;
             left: 0;
+            top: 10px;
         }
 
         .notice-card .multilang-text {
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid #f0e6dc;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #e5d9cd;
         }
 
         .notice-card .multilang-text p {
             font-size: 0.9rem;
-            color: #777;
-            margin: 4px 0;
+            color: #8c7f72;
+            margin: 6px 0;
         }
 
         .notice-card .multilang-text .lang-label {
@@ -391,16 +492,16 @@
         }
 
         footer {
-            background: #fffaf5;
-            padding: 40px 20px;
+            background: #faf6f0;
+            padding: 50px 20px;
             text-align: center;
             font-size: 0.9rem;
-            color: #777;
-            border-top: 1px solid #f3eae2;
+            color: #8c7f72;
+            border-top: 1px solid #e5d9cd;
         }
 
         footer p {
-            margin: 5px 0;
+            margin: 6px 0;
         }
 
         .fade-in {
@@ -430,23 +531,24 @@
             right: 30px;
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #c48c65 0%, #b07a54 100%);
+            background: #ffffff;
+            border: 1.5px solid #c48c65;
             border-radius: 50%;
-            border: none;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(196, 140, 101, 0.4);
+            box-shadow: 0 6px 20px rgba(142, 109, 80, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.8rem;
-            color: #fff;
-            transition: transform 0.3s, box-shadow 0.3s;
+            color: #c48c65;
+            transition: all 0.3s;
             z-index: 1000;
         }
 
         .chatbot-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(196, 140, 101, 0.5);
+            background: #faf6f0;
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(142, 109, 80, 0.2);
         }
 
         .chatbot-window {
@@ -455,9 +557,10 @@
             right: 30px;
             width: 380px;
             height: 520px;
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            background: #faf6f0;
+            border: 1px solid #e5d9cd;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(142, 109, 80, 0.12);
             display: none;
             flex-direction: column;
             z-index: 1000;
@@ -481,9 +584,9 @@
         }
 
         .chatbot-header {
-            background: linear-gradient(135deg, #c48c65 0%, #b07a54 100%);
+            background: #c48c65;
             color: #fff;
-            padding: 18px 20px;
+            padding: 16px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -492,13 +595,16 @@
         .chatbot-header h4 {
             margin: 0;
             font-size: 1.05rem;
-            font-weight: 600;
+            font-weight: 500;
+            font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+            letter-spacing: 0.5px;
         }
 
         .chatbot-header .chatbot-subtitle {
             font-size: 0.75rem;
             opacity: 0.85;
             margin-top: 2px;
+            font-family: 'Outfit', sans-serif;
         }
 
         .chatbot-close {
@@ -519,24 +625,26 @@
             display: flex;
             gap: 8px;
             padding: 10px 20px;
-            background: #fffaf5;
-            border-bottom: 1px solid #f3eae2;
+            background: #ffffff;
+            border-bottom: 1px solid #e5d9cd;
         }
 
         .chatbot-lang-btn {
             padding: 5px 12px;
-            border: 1px solid #c48c65;
+            border: 1px solid #dcd5cc;
             background: #fff;
-            color: #c48c65;
-            border-radius: 15px;
+            color: #8c7f72;
+            border-radius: 4px;
             font-size: 0.8rem;
             cursor: pointer;
             transition: all 0.3s;
+            font-family: 'Outfit', sans-serif;
         }
 
         .chatbot-lang-btn.active {
             background: #c48c65;
             color: #fff;
+            border-color: #c48c65;
         }
 
         .chatbot-messages {
@@ -551,7 +659,7 @@
         .chatbot-message {
             max-width: 82%;
             padding: 11px 15px;
-            border-radius: 12px;
+            border-radius: 8px;
             font-size: 0.88rem;
             line-height: 1.55;
             animation: fadeIn 0.3s ease-out;
@@ -570,10 +678,10 @@
         }
 
         .chatbot-message.bot {
-            background: #fffaf5;
-            color: #333;
+            background: #ffffff;
+            color: #4a423a;
             align-self: flex-start;
-            border: 1px solid #f3eae2;
+            border: 1px solid #e5d9cd;
         }
 
         .chatbot-message.user {
@@ -583,10 +691,10 @@
         }
 
         .chatbot-message.typing {
-            background: #fffaf5;
-            color: #999;
+            background: #ffffff;
+            color: #8c7f72;
             align-self: flex-start;
-            border: 1px solid #f3eae2;
+            border: 1px solid #e5d9cd;
             font-style: italic;
         }
 
@@ -598,24 +706,27 @@
         }
 
         .chatbot-quick-btn {
-            padding: 7px 14px;
+            padding: 6px 12px;
             background: #fff;
-            border: 1px solid #c48c65;
-            color: #c48c65;
-            border-radius: 16px;
+            border: 1px solid #dcd5cc;
+            color: #8c7f72;
+            border-radius: 4px;
             cursor: pointer;
             font-size: 0.78rem;
             transition: all 0.3s;
+            font-family: 'Outfit', sans-serif;
         }
 
         .chatbot-quick-btn:hover {
-            background: #c48c65;
-            color: #fff;
+            border-color: #c48c65;
+            color: #c48c65;
+            background: #faf6f0;
         }
 
         .chatbot-input-area {
             padding: 12px 16px;
-            border-top: 1px solid #f3eae2;
+            border-top: 1px solid #e5d9cd;
+            background: #ffffff;
             display: flex;
             gap: 8px;
         }
@@ -623,8 +734,8 @@
         .chatbot-input {
             flex: 1;
             padding: 10px 15px;
-            border: 1px solid #e8e4de;
-            border-radius: 20px;
+            border: 1px solid #dcd5cc;
+            border-radius: 4px;
             font-size: 0.88rem;
             font-family: inherit;
         }
@@ -639,15 +750,16 @@
             color: #fff;
             border: none;
             padding: 10px 18px;
-            border-radius: 20px;
+            border-radius: 4px;
             cursor: pointer;
             font-size: 0.88rem;
-            font-weight: 600;
+            font-weight: 500;
             transition: background 0.3s;
+            font-family: 'Outfit', sans-serif;
         }
 
         .chatbot-send:hover {
-            background: #b07a54;
+            background: #8e6d50;
         }
 
         .chatbot-send:disabled {
@@ -658,12 +770,12 @@
         /* ===== Responsive ===== */
         @media (max-width: 768px) {
             header {
-                padding: 40px 20px 30px;
+                padding: 50px 20px 40px;
             }
 
             .lang-selector-top {
-                top: 10px;
-                right: 10px;
+                top: 15px;
+                right: 15px;
                 gap: 6px;
             }
 
@@ -673,7 +785,7 @@
             }
 
             header h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             header .logo-container img {
@@ -681,12 +793,13 @@
             }
 
             section.hero h2 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
                 padding: 12px 25px;
             }
 
             .info-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             nav {
@@ -695,7 +808,7 @@
 
             nav a {
                 padding: 12px 15px;
-                font-size: 0.9rem;
+                font-size: 0.88rem;
             }
 
             .chatbot-window {
@@ -736,6 +849,9 @@
 </head>
 
 <body>
+    <!-- Leaf shadow overlay -->
+    <div class="leaf-shadow"></div>
+
     <!-- Chatbot Button -->
     <button class="chatbot-button" id="chatbotToggle" onclick="toggleChatbot()">💬</button>
 
@@ -1038,7 +1154,7 @@
         const infoGrid = createElement('div', { class: 'info-grid' });
         const cards = [
             { icon: '📍', key: 'cardLocation', descKey: 'cardLocationDesc' },
-            { icon: '✨', key: 'cardSpecialty', descKey: 'cardSpecialtyDesc' },
+            { icon: '✦', key: 'cardSpecialty', descKey: 'cardSpecialtyDesc' },
             { icon: '📅', key: 'cardBooking', descKey: 'cardBookingDesc' }
         ];
         cards.forEach(card => {
@@ -1087,7 +1203,7 @@
         <h3 data-translate="noticeTitle">${t.noticeTitle}</h3>
         
         <div class="notice-card">
-          <h4><span class="notice-icon">🤫</span> <span data-translate="noticeEtiquette">${t.noticeEtiquette}</span></h4>
+          <h4><span data-translate="noticeEtiquette">${t.noticeEtiquette}</span></h4>
           <ul>
             ${t.noticeEtiquetteItems.map(item => `<li>${item}</li>`).join('')}
           </ul>
@@ -1099,7 +1215,7 @@
         </div>
 
         <div class="notice-card">
-          <h4><span class="notice-icon">📹</span> <span data-translate="noticeCctv">${t.noticeCctv}</span></h4>
+          <h4><span data-translate="noticeCctv">${t.noticeCctv}</span></h4>
           <p data-translate="noticeCctvText">${t.noticeCctvText}</p>
           <div class="multilang-text">
             <p><span class="lang-label">EN</span> ${t.noticeCctvEn}</p>
@@ -1125,7 +1241,7 @@
             href: 'https://booking.naver.com/booking/13/bizes/1011635?theme=place&entry=pll&lang=ko&area=pll',
             target: '_blank',
             rel: 'noopener noreferrer',
-            style: 'display: inline-block; padding: 14px 30px; background: #c48c65; color: #fff; text-decoration: none; border-radius: 30px; font-weight: 600;',
+            style: 'display: inline-block; padding: 14px 30px; background: #c48c65; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 500; letter-spacing: 1.5px; font-family: \'Outfit\', sans-serif; text-transform: uppercase;',
             'data-translate': 'contactButton'
         }, pageTranslations[pageLang].contactButton);
         contactP4.appendChild(contactBtn);

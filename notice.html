@@ -16,38 +16,62 @@
         body {
             margin: 0;
             font-family: 'Outfit', 'Pretendard', sans-serif;
-            background-color: #fdfbf7;
+            background-color: #faf6f0;
+            /* Soft luxury peach watercolor background washes */
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(243, 218, 203, 0.45) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(243, 218, 203, 0.3) 0%, transparent 50%);
+            background-attachment: fixed;
             color: #4a423a;
             line-height: 1.8;
             letter-spacing: -0.01em;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Leaf shadow overlay */
+        .leaf-shadow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.025" fill="%238e6d50"><path d="M150,0 C200,80 220,150 180,220 C150,270 90,300 30,320 C80,260 110,180 100,100 Z"/><path d="M300,50 C340,110 350,170 310,220 C280,260 220,280 170,290 C210,240 230,170 210,110 Z"/><path d="M50,150 C100,210 130,280 100,350 C70,400 10,420 -40,430 C10,370 30,290 10,220 Z"/></svg>');
+            background-size: 400px 400px;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 0;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 80px 24px;
+            padding: 90px 24px;
             position: relative;
+            z-index: 1;
         }
 
         .lang-selector-top {
             position: absolute;
-            top: 24px;
+            top: 30px;
             right: 24px;
             display: flex;
             gap: 6px;
+            z-index: 10;
         }
 
         .lang-btn {
             padding: 6px 14px;
-            border: 1px solid #e5d9cd;
-            background: #fff;
+            border: 1px solid #dcd5cc;
+            background: rgba(255, 255, 255, 0.85);
             color: #8c7f72;
-            border-radius: 4px;
+            border-radius: 2px;
             font-size: 0.8rem;
             cursor: pointer;
             transition: all 0.3s;
             font-weight: 400;
             font-family: 'Outfit', sans-serif;
+            letter-spacing: 0.5px;
         }
 
         .lang-btn:hover {
@@ -79,172 +103,287 @@
 
         .hero h1 {
             font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
-            font-size: 2.6rem;
-            font-weight: 400;
-            color: #2e2620;
-            margin-bottom: 12px;
-            line-height: 1.2;
-            letter-spacing: 0.5px;
-        }
-
-        .hero .page-label {
-            display: inline-block;
-            border: 1px solid #d6a77a;
-            color: #c48c65;
-            background: transparent;
-            padding: 5px 18px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-bottom: 20px;
+            font-size: 2.8rem;
+            font-weight: 300;
+            color: #8e6d50;
+            letter-spacing: 0.15em;
+            margin-bottom: 15px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-family: 'Outfit', sans-serif;
         }
 
         .hero p {
             font-size: 1.05rem;
             color: #8c7f72;
             font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-family: 'Outfit', 'Pretendard', sans-serif;
             letter-spacing: 0.5px;
         }
 
+        /* Classic Leaflet Border Frame Card */
         .card {
             background: #ffffff;
-            border: 1px solid #f0e6dc;
-            border-radius: 8px;
-            padding: 55px 45px;
-            margin-bottom: 35px;
-            box-shadow: 0 10px 30px rgba(196, 140, 101, 0.02);
+            border: 1px solid #e5d9cd;
+            border-radius: 4px;
+            padding: 8px; /* space between outer and inner border */
+            margin-bottom: 45px;
+            position: relative;
+            box-shadow: 0 12px 40px rgba(46, 38, 32, 0.02);
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            background-image: radial-gradient(circle at 100% 0%, rgba(243, 218, 203, 0.25) 0%, transparent 40%);
         }
 
         .card:nth-child(3) { animation-delay: 0.1s; }
         .card:nth-child(4) { animation-delay: 0.2s; }
         .card:nth-child(5) { animation-delay: 0.3s; }
         .card:nth-child(6) { animation-delay: 0.4s; }
-        .card:nth-child(7) { animation-delay: 0.5s; }
+
+        .card-inner {
+            border: 1px solid #e5d9cd;
+            padding: 55px 45px;
+            position: relative;
+        }
+
+        /* Decorative Corners */
+        .corner-ornament {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-color: #d6a77a;
+            border-style: solid;
+            pointer-events: none;
+        }
+        .corner-ornament.top-left {
+            top: 12px;
+            left: 12px;
+            border-width: 1.5px 0 0 1.5px;
+        }
+        .corner-ornament.top-right {
+            top: 12px;
+            right: 12px;
+            border-width: 1.5px 1.5px 0 0;
+        }
+        .corner-ornament.bottom-left {
+            bottom: 12px;
+            left: 12px;
+            border-width: 0 0 1.5px 1.5px;
+        }
+        .corner-ornament.bottom-right {
+            bottom: 12px;
+            right: 12px;
+            border-width: 0 1.5px 1.5px 0;
+        }
 
         .card h2 {
             font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
-            font-size: 1.8rem;
-            font-weight: 400;
-            color: #2e2620;
-            margin-bottom: 25px;
-            border-bottom: 1px solid #f5ede5;
-            padding-bottom: 15px;
-            letter-spacing: 0.5px;
+            font-size: 2rem;
+            font-weight: 300;
+            color: #8e6d50;
+            margin-bottom: 30px;
+            letter-spacing: 0.1em;
             text-align: center;
         }
 
-        .card p {
-            font-size: 1.02rem;
-            color: #5a5046;
-            margin-bottom: 16px;
-            line-height: 1.8;
+        /* Split layout for WeChat */
+        .wechat-container {
+            display: flex;
+            gap: 40px;
+            align-items: center;
         }
 
-        .card ul {
+        .wechat-text-side {
+            flex: 1.25;
+        }
+
+        .wechat-qr-side {
+            flex: 0.75;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-left: 1px solid #f2e9df;
+            padding-left: 40px;
+        }
+
+        .premium-list {
             list-style: none;
             padding: 0;
-            margin: 20px 0;
+            margin: 0;
         }
 
-        .card ul li {
-            padding: 12px 0;
+        .premium-list li {
+            font-size: 0.98rem;
             color: #5a5046;
-            font-size: 1rem;
+            padding: 14px 0;
+            border-bottom: 1px dashed #f5ede5;
             position: relative;
             padding-left: 20px;
-            border-bottom: 1px dashed #f5ede5;
+            line-height: 1.7;
         }
 
-        .card ul li:last-child {
-            border-bottom: none;
-        }
-
-        .card ul li::before {
-            content: "—";
+        .premium-list li::before {
+            content: "✦";
             color: #d6a77a;
             position: absolute;
             left: 0;
-            font-weight: 300;
+            font-size: 0.7rem;
+            top: 16px;
         }
 
-        /* WeChat QR Section */
-        .wechat-area {
-            text-align: center;
-            padding: 20px 0 10px;
+        .premium-list li:last-child {
+            border-bottom: none;
         }
 
+        /* WeChat QR Area */
         .wechat-qr-box {
             display: inline-block;
-            background: #fdfcf9;
+            background: #fff;
             border: 1px solid #e5d9cd;
-            border-radius: 6px;
-            padding: 20px;
-            margin-bottom: 15px;
+            padding: 15px;
+            margin-bottom: 12px;
         }
 
         .wechat-qr-box img {
-            width: 160px;
-            height: 160px;
+            width: 150px;
+            height: 150px;
             display: block;
-            border-radius: 4px;
-        }
-
-        .wechat-qr-placeholder {
-            width: 160px;
-            height: 160px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #faf6f0;
-            border-radius: 4px;
-            color: #a39281;
-            font-size: 0.85rem;
-            text-align: center;
-            line-height: 1.5;
-            border: 1px dashed #dcd0c4;
         }
 
         .wechat-id {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #8c7f72;
             margin-top: 5px;
             letter-spacing: 0.5px;
+            font-family: 'Outfit', sans-serif;
         }
 
         .wechat-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 35px;
+            padding: 10px 24px;
             background: #c48c65;
             color: #fff;
-            border-radius: 4px;
+            border-radius: 2px;
             border: none;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             cursor: pointer;
             transition: all 0.3s;
             margin-top: 15px;
             letter-spacing: 1px;
             text-transform: uppercase;
+            font-family: 'Outfit', sans-serif;
         }
 
         .wechat-btn:hover {
-            background: #a8724c;
+            background: #8e6d50;
             transform: translateY(-1px);
-            box-shadow: 0 4px 15px rgba(196, 140, 101, 0.25);
+            box-shadow: 0 4px 15px rgba(142, 109, 80, 0.15);
         }
 
-        /* Map */
+        /* 3-Column trilingual poster style layout (Image 3) */
+        .brand-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .brand-subtitle {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            color: #a39281;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        .brand-divider {
+            color: #c48c65;
+            font-size: 0.8rem;
+            margin-top: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .brand-divider::before,
+        .brand-divider::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 80px;
+            height: 1px;
+            background-color: #e5d9cd;
+        }
+
+        .brand-divider::before {
+            right: 25px;
+        }
+
+        .brand-divider::after {
+            left: 25px;
+        }
+
+        .peaceful-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 35px;
+            margin-bottom: 35px;
+        }
+
+        .peaceful-col {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #5a5046;
+            line-height: 2.1;
+            font-family: 'Noto Serif KR', 'Outfit', serif;
+            font-weight: 300;
+        }
+
+        .peaceful-col:not(:last-child) {
+            border-right: 1px solid #eae1d7;
+        }
+
+        .col-lang-tag {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            color: #c48c65;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .cctv-banner {
+            border-top: 1px solid #e5d9cd;
+            padding-top: 25px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.82rem;
+            color: #8c7f72;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            font-family: 'Outfit', 'Pretendard', sans-serif;
+        }
+
+        .cctv-banner svg {
+            fill: #c48c65;
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Map & Info Styling */
         .map-container {
             margin-top: 20px;
-            border-radius: 6px;
+            border-radius: 4px;
             overflow: hidden;
             border: 1px solid #f0e6dc;
         }
@@ -253,13 +392,13 @@
             width: 100%;
             height: 400px;
             border: none;
+            display: block;
         }
 
-        /* Buttons */
         .btn-group {
             display: flex;
             gap: 15px;
-            margin-top: 25px;
+            margin-top: 30px;
             flex-wrap: wrap;
         }
 
@@ -268,22 +407,24 @@
             background: #c48c65;
             color: #fff;
             padding: 12px 30px;
-            border-radius: 4px;
+            border-radius: 2px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 400;
             transition: all 0.3s;
             border: 1px solid #c48c65;
             cursor: pointer;
             font-size: 0.9rem;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             font-family: 'Outfit', sans-serif;
             text-align: center;
+            text-transform: uppercase;
         }
 
         .btn:hover {
-            background: #a8724c;
-            border-color: #a8724c;
+            background: #8e6d50;
+            border-color: #8e6d50;
             transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(142, 109, 80, 0.15);
         }
 
         .btn-outline {
@@ -310,14 +451,15 @@
         .contact-info {
             background: #faf6f0;
             padding: 30px;
-            border-radius: 6px;
+            border-radius: 4px;
             margin-top: 20px;
             border: 1px solid #f0e6dc;
+            background-image: radial-gradient(circle at 0% 0%, rgba(243, 218, 203, 0.15) 0%, transparent 40%);
         }
 
         .contact-info p {
             margin: 12px 0;
-            font-size: 0.95rem;
+            font-size: 0.98rem;
             color: #5a5046;
         }
 
@@ -328,15 +470,17 @@
 
         .back-link {
             display: inline-block;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
             color: #c48c65;
             text-decoration: none;
             font-weight: 400;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             transition: color 0.3s;
             letter-spacing: 0.5px;
-            border-bottom: 1px dashed rgba(196, 140, 101, 0.4);
+            border-bottom: 1px dashed rgba(196, 140, 101, 0.3);
             padding-bottom: 2px;
+            font-family: 'Outfit', sans-serif;
+            text-transform: uppercase;
         }
 
         .back-link:hover {
@@ -350,19 +494,48 @@
 
         @media (max-width: 768px) {
             .container {
-                padding: 50px 20px;
+                padding: 60px 20px;
             }
 
             .hero h1 {
                 font-size: 2.1rem;
             }
 
-            .card {
-                padding: 40px 25px;
+            .card-inner {
+                padding: 40px 20px;
             }
 
             .card h2 {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
+            }
+
+            .wechat-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .wechat-qr-side {
+                border-left: none;
+                padding-left: 0;
+                border-top: 1px solid #f2e9df;
+                padding-top: 30px;
+                width: 100%;
+            }
+
+            .peaceful-columns {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .peaceful-col {
+                border-right: none !important;
+                border-bottom: 1px solid #eae1d7;
+                padding-bottom: 30px;
+            }
+
+            .peaceful-col:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
             }
 
             .btn-group {
@@ -374,17 +547,14 @@
                 width: 100%;
                 box-sizing: border-box;
             }
-
-            .wechat-qr-box img,
-            .wechat-qr-placeholder {
-                width: 150px;
-                height: 150px;
-            }
         }
     </style>
 </head>
 
 <body>
+    <!-- Leaf shadow overlay -->
+    <div class="leaf-shadow"></div>
+
     <div class="container">
         <div class="lang-selector-top">
             <button class="lang-btn active" data-lang="ko" onclick="setLang('ko')">한국어</button>
@@ -402,46 +572,107 @@
 
         <!-- Notice 1: Reservation & WeChat -->
         <div class="card" id="wechatCard">
-            <h2 id="wechatTitle"></h2>
-            <p id="wechatDesc" style="white-space: pre-line; margin-bottom: 24px; color: #5a5046; font-size: 1.02rem; text-align: center;"></p>
-            <div class="wechat-area">
-                <div class="wechat-qr-box">
-                    <img src="wechat-qr.jpg" alt="WeChat QR Code">
+            <div class="card-inner">
+                <div class="corner-ornament top-left"></div>
+                <div class="corner-ornament top-right"></div>
+                <div class="corner-ornament bottom-left"></div>
+                <div class="corner-ornament bottom-right"></div>
+                
+                <h2 id="wechatTitle"></h2>
+                
+                <div class="wechat-container">
+                    <div class="wechat-text-side">
+                        <ul id="wechatPoints" class="premium-list"></ul>
+                    </div>
+                    <div class="wechat-qr-side">
+                        <div class="wechat-qr-box">
+                            <img src="wechat-qr.jpg" alt="WeChat QR Code">
+                        </div>
+                        <p class="wechat-id" id="wechatId">WeChat ID: 준비 중</p>
+                        <button class="wechat-btn" onclick="alert(wechatAlertMsg())"><span id="wechatBtnText">WeChat 문의</span></button>
+                    </div>
                 </div>
-                <!-- TODO: WeChat ID가 확정되면 아래 텍스트를 업데이트하세요 -->
-                <p class="wechat-id" id="wechatId">WeChat ID: 준비 중</p>
-                <button class="wechat-btn" onclick="alert(wechatAlertMsg())"><span id="wechatBtnText">WeChat 문의</span></button>
             </div>
         </div>
 
-        <!-- Notice 2: A Peaceful Moment -->
+        <!-- Notice 2: A Peaceful Moment & CCTV (Combined and designed after Image 3) -->
         <div class="card" id="peacefulCard">
-            <h2 id="peacefulTitle"></h2>
-            <p id="peacefulDesc" style="white-space: pre-line; color: #5a5046; font-size: 1.02rem; text-align: center;"></p>
+            <div class="card-inner">
+                <div class="corner-ornament top-left"></div>
+                <div class="corner-ornament top-right"></div>
+                <div class="corner-ornament bottom-left"></div>
+                <div class="corner-ornament bottom-right"></div>
+                
+                <div class="brand-header">
+                    <img src="aube-logo.png" alt="AUBE Logo" style="max-height: 55px; margin-bottom: 12px;">
+                    <div class="brand-subtitle">BEAUTY & RELAXATION</div>
+                    <div class="brand-divider">✦</div>
+                </div>
+                
+                <div class="peaceful-columns">
+                    <div class="peaceful-col">
+                        <div class="col-lang-tag">KO</div>
+                        이곳은 모든 고객님이<br>
+                        편안한 휴식을 위해 이용하시는 공간입니다.<br>
+                        다른 고객님들을 위해 대화와 휴대전화 사용은<br>
+                        조용히 부탁드립니다.<br>
+                        편안한 분위기 조성에 협조해 주셔서<br>
+                        감사합니다.
+                    </div>
+                    <div class="peaceful-col">
+                        <div class="col-lang-tag">EN</div>
+                        Welcome to our relaxation space.<br>
+                        For the comfort and enjoyment of all guests,<br>
+                        we kindly ask that you keep conversations<br>
+                        and mobile phone use quiet while in the salon.<br>
+                        Thank you for helping us<br>
+                        maintain a peaceful atmosphere.
+                    </div>
+                    <div class="peaceful-col">
+                        <div class="col-lang-tag">ZH</div>
+                        为了让每位顾客都能享受宁静舒适的休息时光，<br>
+                        请您轻声交谈，并将手机调至静音模式。<br>
+                        感谢您的理解与配合，<br>
+                        共同维护温馨、舒适的环境。
+                    </div>
+                </div>
+                
+                <div class="cctv-banner">
+                    <svg viewBox="0 0 24 24"><path d="M16 10.5V7c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 15H4V8h10v7z"/></svg>
+                    <span>고객님의 안전을 위해 CCTV가 운영되고 있습니다.  |  CCTV is in operation for your safety.  |  为了您的安全，本店已开启CCTV监控。</span>
+                </div>
+            </div>
         </div>
-
-        <!-- Notice 3: CCTV Notice -->
-        <div class="card" id="cctvCard">
-            <h2 id="cctvTitle"></h2>
-            <p id="cctvDesc" style="white-space: pre-line; color: #5a5046; font-size: 1.02rem; text-align: center;"></p>
-        </div>
-
 
         <!-- Map Section -->
         <div class="card">
-            <h2 id="mapTitle"></h2>
-            <p id="mapAddress"></p>
-            <div class="map-container">
-                <iframe id="mapIframe" src="" allowfullscreen="" loading="lazy"></iframe>
+            <div class="card-inner">
+                <div class="corner-ornament top-left"></div>
+                <div class="corner-ornament top-right"></div>
+                <div class="corner-ornament bottom-left"></div>
+                <div class="corner-ornament bottom-right"></div>
+                
+                <h2 id="mapTitle"></h2>
+                <p id="mapAddress" style="text-align: center; margin-bottom: 20px; font-size: 1.02rem; color: #5a5046; font-family: 'Noto Serif KR', serif;"></p>
+                <div class="map-container">
+                    <iframe id="mapIframe" src="" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <p id="mapTip" style="margin-top: 20px; font-size: 0.92rem; color: #8c7f72; text-align: center; font-style: italic;"></p>
             </div>
-            <p id="mapTip" style="margin-top: 15px; font-size: 0.95rem; color: #666;"></p>
         </div>
 
         <!-- Visit Info -->
         <div class="card">
-            <h2 id="visitTitle"></h2>
-            <div class="contact-info" id="contactInfo"></div>
-            <div class="btn-group" id="ctaButtons"></div>
+            <div class="card-inner">
+                <div class="corner-ornament top-left"></div>
+                <div class="corner-ornament top-right"></div>
+                <div class="corner-ornament bottom-left"></div>
+                <div class="corner-ornament bottom-right"></div>
+                
+                <h2 id="visitTitle"></h2>
+                <div class="contact-info" id="contactInfo"></div>
+                <div class="btn-group" id="ctaButtons" style="justify-content: center;"></div>
+            </div>
         </div>
     </div>
 
@@ -469,40 +700,38 @@
                 metaTitle: 'Notice / 안내문 / 公告 — AUBE',
                 backLink: '메인으로 돌아가기',
                 hero: {
-                    title: '오브래쉬 AUBE 안내',
-                    desc: '매장 이용에 필요한 안내 사항을 확인해주세요.'
+                    title: 'AUBE Store Guidelines',
+                    desc: 'AUBE에 머무시는 동안 더 깊은 휴식과 아름다움을 온전히 경험하실 수 있도록 준비한 매장 안내문입니다.'
                 },
                 wechat: {
-                    title: 'Reservation & WeChat',
-                    desc: '예약 우선제로 운영됩니다.\n예약 없이 방문하시는 경우 대기 시간이 발생할 수 있습니다.\n보다 빠른 상담 및 예약은 WeChat을 이용해주세요.',
+                    title: 'Dear Valued Customer',
+                    points: [
+                        '예약 우선제로 운영됩니다.',
+                        '예약 없이 방문하시는 경우 대기 시간이 발생할 수 있습니다.',
+                        '보다 빠른 상담 및 예약은 WeChat을 이용해주세요.',
+                        '다른 고객님이 시술 중인 경우, 쇼파에서 편안히 대기해주시면 순서대로 안내해 드리겠습니다.',
+                        '협조해 주셔서 감사합니다.'
+                    ],
                     id: 'WeChat ID: 준비 중',
                     btn: 'WeChat 문의'
                 },
-                peaceful: {
-                    title: 'A Peaceful Moment',
-                    desc: '이곳은 모든 고객님이 편안한 휴식을 위해 이용하시는 공간입니다.\n다른 고객님들을 위해 대화와 휴대전화 사용은 조용히 부탁드립니다.\n편안한 분위기 조성에 협조해 주셔서 감사합니다.'
-                },
-                cctv: {
-                    title: 'CCTV Notice',
-                    desc: '고객님의 안전을 위해 CCTV가 운영되고 있습니다.'
-                },
                 map: {
-                    title: '오시는 길',
+                    title: 'Location',
                     address: '제주 제주시 연동 연북로 158, 2층 오브래쉬 (AUBE)',
                     tip: '연동 중앙버스정류장에서 도보 3분, 건물 앞 공영주차장 1시간 무료'
                 },
                 visit: {
-                    title: '방문 & 예약 안내',
+                    title: 'Visit & Booking',
                     info: [
                         '<strong>주소</strong>: 제주 제주시 연북로 158, 2층',
-                        '<strong>예약문의</strong>: <a href="tel:010-7365-0623" style="color:#d6a77a;text-decoration:none;">010-7365-0623</a>',
+                        '<strong>예약문의</strong>: <a href="tel:010-7365-0623" style="color:#c48c65;text-decoration:none;">010-7365-0623</a>',
                         '<strong>운영시간</strong>: 오전 10시 ~ 저녁 7시 (공휴일 변동 가능)'
                     ],
                     buttons: [
-                        { text: 'Instagram 방문하기', href: 'https://www.instagram.com/aube_lash_/' },
+                        { text: 'Instagram', href: 'https://www.instagram.com/aube_lash_/' },
                         /* TODO: Xiaohongshu 실제 URL이 확정되면 href를 교체하세요 */
                         { text: '小红书 (Xiaohongshu)', href: '#', class: 'btn-xiaohongshu' },
-                        { text: '네이버지도 보기', href: 'https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%20%EC%A0%9C%EC%A3%BC%EC%8B%9C%20%EC%97%B0%EB%8F%99%20%EC%97%B0%EB%B6%81%EB%A1%9C%20158', outline: true }
+                        { text: 'Naver Map', href: 'https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%20%EC%A0%9C%EC%A3%BC%EC%8B%9C%20%EC%97%B0%EB%8F%99%20%EC%97%B0%EB%B6%81%EB%A1%9C%20158', outline: true }
                     ]
                 }
             },
@@ -511,42 +740,37 @@
                 backLink: 'Back to Main',
                 hero: {
                     title: 'AUBE Store Guidelines',
-                    desc: 'Please check the important information for your visit.'
+                    desc: 'Store guidelines prepared so you can fully experience deeper relaxation and beauty during your stay at AUBE.'
                 },
                 wechat: {
-                    title: 'Reservation & WeChat',
-                    desc: 'Our salon operates on a reservation-priority system.\nWalk-in customers may experience waiting times.\nFor faster inquiries and reservations, please contact us via WeChat.',
+                    title: 'Dear Valued Customer',
+                    points: [
+                        'Our salon operates on a reservation-priority system.',
+                        'Customers who visit without a reservation may experience waiting times, and we kindly ask for your understanding.',
+                        'For more convenient booking assistance, please contact us via WeChat.',
+                        'As other customers are currently being served, please have a seat on the sofa and wait comfortably. We will assist you in order.',
+                        'Thank you for your understanding and cooperation.'
+                    ],
                     id: 'WeChat ID: Coming Soon',
                     btn: 'WeChat Inquiry'
                 },
-                peaceful: {
-                    title: 'A Peaceful Moment',
-                    desc: 'Welcome to our relaxation space.\nFor the comfort and enjoyment of all guests, we kindly ask that conversations and mobile phone use remain quiet while in the salon.\nThank you for helping us maintain a peaceful atmosphere.',
-                    qrPlaceholder: '',
-                    id: '',
-                    btn: ''
-                },
-                cctv: {
-                    title: 'CCTV Notice',
-                    desc: 'CCTV is in operation for your safety.'
-                },
                 map: {
-                    title: 'How to Find Us',
+                    title: 'Location',
                     address: '2F, 158 Yeonbuk-ro, Yeon-dong, Jeju City (AUBE)',
                     tip: '3-minute walk from Yeondong central bus stop, public parking out front (first hour free)'
                 },
                 visit: {
-                    title: 'Visit & Booking Info',
+                    title: 'Visit & Booking',
                     info: [
                         '<strong>Address</strong>: 2F, 158 Yeonbuk-ro, Jeju City',
-                        '<strong>Booking</strong>: <a href="tel:010-7365-0623" style="color:#d6a77a;text-decoration:none;">010-7365-0623</a>',
+                        '<strong>Booking</strong>: <a href="tel:010-7365-0623" style="color:#c48c65;text-decoration:none;">010-7365-0623</a>',
                         '<strong>Hours</strong>: 10 AM – 7 PM (hours may vary on holidays)'
                     ],
                     buttons: [
-                        { text: 'Visit Instagram', href: 'https://www.instagram.com/aube_lash_/' },
+                        { text: 'Instagram', href: 'https://www.instagram.com/aube_lash_/' },
                         /* TODO: Replace href with actual Xiaohongshu URL */
                         { text: 'Xiaohongshu (小红书)', href: '#', class: 'btn-xiaohongshu' },
-                        { text: 'Open on Naver Map', href: 'https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%20%EC%A0%9C%EC%A3%BC%EC%8B%9C%20%EC%97%B0%EB%8F%99%20%EC%97%B0%EB%B6%81%EB%A1%9C%20158', outline: true }
+                        { text: 'Naver Map', href: 'https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%20%EC%A0%9C%EC%A3%BC%EC%8B%9C%20%EC%97%B0%EB%8F%99%20%EC%97%B0%EB%B6%81%EB%A1%9C%20158', outline: true }
                     ]
                 }
             },
@@ -555,39 +779,37 @@
                 backLink: '返回主页',
                 hero: {
                     title: 'AUBE 门店须知',
-                    desc: '请查阅到店所需的重要信息。'
+                    desc: '为了让您在 AUBE 期间能充分享受更深层次的放松与美丽，我们特别准备了这份门店须知。'
                 },
                 wechat: {
-                    title: 'Reservation & WeChat',
-                    desc: '本店实行预约优先制。\n未预约直接到店时可能需要等待。\n为了更方便地安排时间，请通过微信进行咨询和预约。',
+                    title: '尊敬的顾客您好',
+                    points: [
+                        '本店实行预约优先制。',
+                        '未预约直接到店的顾客，可能需要等候，敬请谅解。',
+                        '为了更方便为您安排时间，请通过微信进行咨询和预约。',
+                        '另外，由于店内还有其他顾客，请您先在沙发稍作等候，我们会按顺序为您安排服务。',
+                        '感谢您的理解与配合。'
+                    ],
                     id: '微信ID: 即将推出',
                     btn: '微信咨询'
                 },
-                peaceful: {
-                    title: 'A Peaceful Moment',
-                    desc: '为了让每位顾客都能享受宁静舒适的休息时光，\n请您轻声交谈，并将手机调至静音模式。\n感谢您的理解与配合，共同维护温馨舒适的环境。'
-                },
-                cctv: {
-                    title: 'CCTV Notice',
-                    desc: '为了您的安全，本店已开启CCTV监控。'
-                },
                 map: {
-                    title: '如何前往',
+                    title: 'Location',
                     address: '济州市莲洞莲北路158号2楼 AUBE',
                     tip: '距离莲洞中央站步行3分钟，楼前公共停车场首小时免费'
                 },
                 visit: {
-                    title: '访问与预约',
+                    title: 'Visit & Booking',
                     info: [
                         '<strong>地址</strong>: 济州市莲北路158号2楼',
-                        '<strong>预约</strong>: <a href="tel:010-7365-0623" style="color:#d6a77a;text-decoration:none;">010-7365-0623</a>',
+                        '<strong>预约</strong>: <a href="tel:010-7365-0623" style="color:#c48c65;text-decoration:none;">010-7365-0623</a>',
                         '<strong>营业时间</strong>: 上午10点至晚上7点（节假日可能调整）'
                     ],
                     buttons: [
-                        { text: '查看 Instagram', href: 'https://www.instagram.com/aube_lash_/' },
+                        { text: 'Instagram', href: 'https://www.instagram.com/aube_lash_/' },
                         /* TODO: 确认小红书URL后替换href */
                         { text: '小红书', href: '#', class: 'btn-xiaohongshu' },
-                        { text: '打开 Naver 地图', href: 'https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%20%EC%A0%9C%EC%A3%BC%EC%8B%9C%20%EC%97%B0%EB%8F%99%20%EC%97%B0%EB%B6%81%EB%A1%9C%20158', outline: true }
+                        { text: 'Naver Map', href: 'https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%20%EC%A0%9C%EC%A3%BC%EC%8B%9C%20%EC%97%B0%EB%8F%99%20%EC%97%B0%EB%B6%81%EB%A1%9C%20158', outline: true }
                     ]
                 }
             }
@@ -606,18 +828,17 @@
 
             // WeChat (Reservation & WeChat)
             document.getElementById('wechatTitle').textContent = c.wechat.title;
-            document.getElementById('wechatDesc').innerHTML = c.wechat.desc.replace(/\n/g, '<br>');
             document.getElementById('wechatId').textContent = c.wechat.id;
             document.getElementById('wechatBtnText').textContent = c.wechat.btn;
 
-            // Peaceful Moment
-            document.getElementById('peacefulTitle').textContent = c.peaceful.title;
-            document.getElementById('peacefulDesc').innerHTML = c.peaceful.desc.replace(/\n/g, '<br>');
-
-            // CCTV Notice
-            document.getElementById('cctvTitle').textContent = c.cctv.title;
-            document.getElementById('cctvDesc').innerHTML = c.cctv.desc.replace(/\n/g, '<br>');
-
+            // WeChat Points
+            const wechatPoints = document.getElementById('wechatPoints');
+            wechatPoints.innerHTML = '';
+            c.wechat.points.forEach(point => {
+                const li = document.createElement('li');
+                li.textContent = point;
+                wechatPoints.appendChild(li);
+            });
 
             // Map
             document.getElementById('mapTitle').textContent = c.map.title;

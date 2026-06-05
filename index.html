@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>오브래쉬 AUBE | 제주 속눈썹 펌 & 연장 전문</title>
-    <meta name="description" content="제주 연동에 위치한 속눈썹 펌 & LED 포인트 연장 전문샵 오브래쉬. 자연스러우면서도 확실히 다른 눈매를 경험하세요.">
+    <title>오브래쉬 AUBE | 제주 속눈썹 펌 &amp; 연장 전문</title>
+    <meta name="description" content="제주 연동에 위치한 속눈썹 펌 &amp; LED 포인트 연장 전문샵 오브래쉬. 자연스러우면서도 확실히 다른 눈매를 경험하세요.">
     <style>
         * {
             margin: 0;
@@ -213,36 +213,181 @@
             margin: 0;
         }
 
-        .calendar-section {
-            background: #fff;
+        /* ===== WeChat Section ===== */
+        .wechat-section {
+            background: linear-gradient(135deg, #fffaf5 0%, #fff 100%);
             border-radius: 18px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-            padding: 40px 30px;
-            margin-top: 40px;
+            box-shadow: 0 4px 24px rgba(196, 140, 101, 0.1);
+            padding: 50px 30px;
+            margin-top: 10px;
+            text-align: center;
+            border: 1px solid #f3eae2;
         }
 
-        .calendar-section h3 {
+        .wechat-section h3 {
             margin-bottom: 15px;
         }
 
-        .calendar-section p {
+        .wechat-section .wechat-desc {
             color: #777;
             font-size: 0.95rem;
-            text-align: center;
+            margin-bottom: 30px;
         }
 
-        .calendar-wrapper {
-            margin-top: 25px;
+        .wechat-qr-area {
+            display: inline-block;
+            background: #fff;
+            border: 2px dashed #e0d0c0;
             border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(196, 140, 101, 0.2);
-            background: linear-gradient(135deg, #fffaf5 0%, #fff 100%);
+            padding: 25px;
+            margin-bottom: 25px;
         }
 
-        .calendar-wrapper iframe {
-            width: 100%;
-            height: 420px;
+        .wechat-qr-area img {
+            width: 180px;
+            height: 180px;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .wechat-qr-placeholder {
+            width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f9f4ef;
+            border-radius: 8px;
+            color: #b0956e;
+            font-size: 0.85rem;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .wechat-id-text {
+            font-size: 0.9rem;
+            color: #999;
+            margin-top: 10px;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
             border: none;
+            cursor: pointer;
+        }
+
+        .social-btn.wechat {
+            background: #07c160;
+            color: #fff;
+        }
+
+        .social-btn.wechat:hover {
+            background: #06ad56;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(7, 193, 96, 0.3);
+        }
+
+        .social-btn.xiaohongshu {
+            background: #ff2442;
+            color: #fff;
+        }
+
+        .social-btn.xiaohongshu:hover {
+            background: #e01f3b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 36, 66, 0.3);
+        }
+
+        .social-btn.instagram {
+            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+            color: #fff;
+        }
+
+        .social-btn.instagram:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(131, 58, 180, 0.3);
+        }
+
+        /* ===== Notice Cards ===== */
+        .notice-card {
+            background: #fffaf5;
+            border-radius: 14px;
+            padding: 35px;
+            border: 1px solid #f3eae2;
+            margin-bottom: 25px;
+        }
+
+        .notice-card h4 {
+            font-size: 1.2rem;
+            color: #2b2b2b;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .notice-card .notice-icon {
+            font-size: 1.4rem;
+        }
+
+        .notice-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .notice-card ul li {
+            padding: 8px 0;
+            color: #555;
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .notice-card ul li::before {
+            content: "•";
+            color: #c48c65;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .notice-card .multilang-text {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #f0e6dc;
+        }
+
+        .notice-card .multilang-text p {
+            font-size: 0.9rem;
+            color: #777;
+            margin: 4px 0;
+        }
+
+        .notice-card .multilang-text .lang-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: #c48c65;
+            font-weight: 600;
+            width: 30px;
+            text-align: right;
+            margin-right: 8px;
         }
 
         footer {
@@ -278,6 +423,7 @@
             transform: translateY(-10px);
         }
 
+        /* ===== Gemini Chatbot ===== */
         .chatbot-button {
             position: fixed;
             bottom: 30px;
@@ -307,8 +453,8 @@
             position: fixed;
             bottom: 100px;
             right: 30px;
-            width: 350px;
-            height: 500px;
+            width: 380px;
+            height: 520px;
             background: #fff;
             border-radius: 16px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
@@ -328,7 +474,6 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -338,7 +483,7 @@
         .chatbot-header {
             background: linear-gradient(135deg, #c48c65 0%, #b07a54 100%);
             color: #fff;
-            padding: 20px;
+            padding: 18px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -346,8 +491,14 @@
 
         .chatbot-header h4 {
             margin: 0;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
+        }
+
+        .chatbot-header .chatbot-subtitle {
+            font-size: 0.75rem;
+            opacity: 0.85;
+            margin-top: 2px;
         }
 
         .chatbot-close {
@@ -367,18 +518,18 @@
         .chatbot-lang-selector {
             display: flex;
             gap: 8px;
-            padding: 12px 20px;
+            padding: 10px 20px;
             background: #fffaf5;
             border-bottom: 1px solid #f3eae2;
         }
 
         .chatbot-lang-btn {
-            padding: 6px 12px;
+            padding: 5px 12px;
             border: 1px solid #c48c65;
             background: #fff;
             color: #c48c65;
             border-radius: 15px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             cursor: pointer;
             transition: all 0.3s;
         }
@@ -391,19 +542,20 @@
         .chatbot-messages {
             flex: 1;
             overflow-y: auto;
-            padding: 20px;
+            padding: 18px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .chatbot-message {
-            max-width: 80%;
-            padding: 12px 16px;
+            max-width: 82%;
+            padding: 11px 15px;
             border-radius: 12px;
-            font-size: 0.9rem;
-            line-height: 1.5;
+            font-size: 0.88rem;
+            line-height: 1.55;
             animation: fadeIn 0.3s ease-out;
+            white-space: pre-wrap;
         }
 
         @keyframes fadeIn {
@@ -411,7 +563,6 @@
                 opacity: 0;
                 transform: translateY(10px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -431,35 +582,42 @@
             align-self: flex-end;
         }
 
-        .chatbot-options {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-top: 10px;
+        .chatbot-message.typing {
+            background: #fffaf5;
+            color: #999;
+            align-self: flex-start;
+            border: 1px solid #f3eae2;
+            font-style: italic;
         }
 
-        .chatbot-option-btn {
-            padding: 10px 16px;
+        .chatbot-quick-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .chatbot-quick-btn {
+            padding: 7px 14px;
             background: #fff;
             border: 1px solid #c48c65;
             color: #c48c65;
-            border-radius: 8px;
+            border-radius: 16px;
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             transition: all 0.3s;
-            text-align: left;
         }
 
-        .chatbot-option-btn:hover {
+        .chatbot-quick-btn:hover {
             background: #c48c65;
             color: #fff;
         }
 
         .chatbot-input-area {
-            padding: 15px 20px;
+            padding: 12px 16px;
             border-top: 1px solid #f3eae2;
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
         .chatbot-input {
@@ -467,7 +625,7 @@
             padding: 10px 15px;
             border: 1px solid #e8e4de;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-family: inherit;
         }
 
@@ -480,10 +638,10 @@
             background: #c48c65;
             color: #fff;
             border: none;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 20px;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 600;
             transition: background 0.3s;
         }
@@ -492,6 +650,12 @@
             background: #b07a54;
         }
 
+        .chatbot-send:disabled {
+            background: #d4c0b0;
+            cursor: not-allowed;
+        }
+
+        /* ===== Responsive ===== */
         @media (max-width: 768px) {
             header {
                 padding: 40px 20px 30px;
@@ -530,15 +694,16 @@
             }
 
             nav a {
-                padding: 12px 18px;
-                font-size: 0.95rem;
+                padding: 12px 15px;
+                font-size: 0.9rem;
             }
 
             .chatbot-window {
-                width: calc(100vw - 40px);
-                right: 20px;
-                left: 20px;
+                width: calc(100vw - 30px);
+                right: 15px;
+                left: 15px;
                 bottom: 90px;
+                height: 65vh;
             }
 
             .chatbot-button {
@@ -546,29 +711,47 @@
                 right: 20px;
             }
 
-            .calendar-section {
-                padding: 30px 20px;
+            .wechat-section {
+                padding: 35px 20px;
             }
 
-            .calendar-wrapper iframe {
-                height: 360px;
+            .wechat-qr-area img,
+            .wechat-qr-placeholder {
+                width: 150px;
+                height: 150px;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .social-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
             }
         }
     </style>
 </head>
 
 <body>
-    <button class="chatbot-button" onclick="toggleChatbot()">💬</button>
+    <!-- Chatbot Button -->
+    <button class="chatbot-button" id="chatbotToggle" onclick="toggleChatbot()">💬</button>
 
+    <!-- Chatbot Window -->
     <div class="chatbot-window" id="chatbotWindow">
         <div class="chatbot-header">
-            <h4 id="chatbotTitle">AUBE 챗봇</h4>
+            <div>
+                <h4 id="chatbotTitle">AUBE 챗봇</h4>
+                <div class="chatbot-subtitle" id="chatbotSubtitle">Powered by AI</div>
+            </div>
             <button class="chatbot-close" onclick="toggleChatbot()">×</button>
         </div>
         <div class="chatbot-lang-selector">
-            <button class="chatbot-lang-btn active" onclick="changeChatLang('ko')">한국어</button>
-            <button class="chatbot-lang-btn" onclick="changeChatLang('en')">English</button>
-            <button class="chatbot-lang-btn" onclick="changeChatLang('zh')">中文</button>
+            <button class="chatbot-lang-btn active" onclick="changeChatLang('ko', this)">한국어</button>
+            <button class="chatbot-lang-btn" onclick="changeChatLang('en', this)">English</button>
+            <button class="chatbot-lang-btn" onclick="changeChatLang('zh', this)">中文</button>
         </div>
         <div class="chatbot-messages" id="chatbotMessages"></div>
         <div class="chatbot-input-area">
@@ -578,23 +761,33 @@
         </div>
     </div>
 
+    <!-- Vercel Analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
     <script>
         window.va = window.va || function () {
             (window.vaq = window.vaq || []).push(arguments);
         };
     </script>
+
     <script>
+        /* ============================================================
+         *  AUBE — 외국인 고객 응대용 안내 웹앱
+         *  Gemini AI 챗봇 + 다국어 지원 + WeChat/Xiaohongshu 연동
+         * ============================================================ */
+
         let chatLang = 'ko';
         let pageLang = 'ko';
-        
+        let isSending = false;
+
+        // ──────────────────────────────────────────────
+        //  페이지 번역 데이터
+        // ──────────────────────────────────────────────
         const pageTranslations = {
             ko: {
                 headerTitle: '오브래쉬 AUBE',
                 headerSubtitle: '제주 속눈썹 펌 · 연장 전문 | 눈 뜨자마자 속눈썹이 숲처럼',
                 navIntro: '소개',
-                navCalendar: '메인 캘린더',
-                navBlog: '블로그',
+                navNotice: '안내문',
                 navBooking: '예약하기',
                 heroTitle: 'JEJU AUBE',
                 introTitle: '오브래쉬는 어떤 곳인가요?',
@@ -603,16 +796,36 @@
                 cardLocation: '위치',
                 cardLocationDesc: '제주 제주시 연동<br>연북로 158 2층',
                 cardSpecialty: '전문 분야',
-                cardSpecialtyDesc: '속눈썹 펌 & LED 포인트 연장<br>피부관리 & 뷰티 케어',
+                cardSpecialtyDesc: '속눈썹 펌 &amp; LED 포인트 연장<br>피부관리 &amp; 뷰티 케어',
                 cardBooking: '예약 방식',
                 cardBookingDesc: '100% 예약제 운영<br>당일 예약 문의 가능<br>오전 10시부터 영업',
-                calendarTitle: '예약 메인 캘린더',
-                calendarDesc: '아래 캘린더에서 가능한 시간을 확인한 뒤 전화로 예약을 확정해주세요.',
+                // WeChat Section
+                wechatTitle: 'WeChat 문의 안내',
+                wechatDesc: 'WeChat으로 편리하게 문의하세요',
+                wechatPlaceholder: 'WeChat QR 코드\n준비 중',
+                wechatIdLabel: 'WeChat ID: 준비 중',
+                wechatBtn: 'WeChat 문의',
+                xiaohongshuBtn: '小红书 (Xiaohongshu)',
+                instagramBtn: 'Instagram',
+                // Notice Section
+                noticeTitle: '매장 이용 안내',
+                noticeEtiquette: '매장 에티켓',
+                noticeEtiquetteItems: [
+                    '조용한 대화 부탁드립니다.',
+                    '휴대전화 통화는 자제해주세요.',
+                    '다른 고객을 위한 편안한 분위기 유지에 협조 부탁드립니다.'
+                ],
+                noticeCctv: 'CCTV 안내',
+                noticeCctvText: '고객님의 안전을 위해 CCTV가 운영되고 있습니다.',
+                noticeCctvEn: 'CCTV is in operation for your safety.',
+                noticeCctvZh: '为了您的安全，本店已开启CCTV监控。',
+                // Contact Section
                 contactTitle: '방문 & 예약 안내',
                 contactAddress: '📍 제주특별자치도 제주시 연동, 연북로 158 2층 (AUBE)',
                 contactPhone: '📞 전화: <a href="tel:050-7135-50623" style="color: #c48c65; text-decoration: none;">050-7135-50623</a>',
                 contactHours: '🕐 운영시간: 오전 10시부터 영업',
                 contactButton: '전화 예약하기',
+                // Footer
                 footerTitle: '오브래쉬 AUBE',
                 footerAddress: '제주특별자치도 제주시 연북로 158 2층',
                 footerInfo: 'Tel: 050-7135-50623 | 영업시간: 오전 10시부터 (예약제)'
@@ -621,8 +834,7 @@
                 headerTitle: 'AUBE Lash Studio',
                 headerSubtitle: 'Jeju Eyelash Perm & Extension Specialist | Lush lashes from the moment you wake',
                 navIntro: 'About',
-                navCalendar: 'Calendar',
-                navBlog: 'Blog',
+                navNotice: 'Notice',
                 navBooking: 'Book Now',
                 heroTitle: 'JEJU AUBE',
                 introTitle: 'What is AUBE?',
@@ -631,11 +843,27 @@
                 cardLocation: 'Location',
                 cardLocationDesc: '2F, 158 Yeonbuk-ro<br>Yeon-dong, Jeju City',
                 cardSpecialty: 'Specialty',
-                cardSpecialtyDesc: 'Lash Perm & LED Point Extension<br>Skin Care & Beauty Treatment',
+                cardSpecialtyDesc: 'Lash Perm &amp; LED Point Extension<br>Skin Care &amp; Beauty Treatment',
                 cardBooking: 'Booking',
                 cardBookingDesc: '100% Reservation Required<br>Same-day Booking Available<br>Open from 10 AM',
-                calendarTitle: 'Reservation Calendar',
-                calendarDesc: 'Check available times in the calendar below, then confirm your reservation by phone.',
+                wechatTitle: 'WeChat Inquiry',
+                wechatDesc: 'Contact us easily via WeChat',
+                wechatPlaceholder: 'WeChat QR Code\nComing Soon',
+                wechatIdLabel: 'WeChat ID: Coming Soon',
+                wechatBtn: 'WeChat Inquiry',
+                xiaohongshuBtn: 'Xiaohongshu (小红书)',
+                instagramBtn: 'Instagram',
+                noticeTitle: 'Store Guidelines',
+                noticeEtiquette: 'Etiquette',
+                noticeEtiquetteItems: [
+                    'Please keep conversations at a low volume.',
+                    'Please refrain from making phone calls.',
+                    'Your cooperation in maintaining a comfortable atmosphere for all guests is appreciated.'
+                ],
+                noticeCctv: 'CCTV Notice',
+                noticeCctvText: 'CCTV is in operation for your safety.',
+                noticeCctvEn: 'CCTV is in operation for your safety.',
+                noticeCctvZh: '为了您的安全，本店已开启CCTV监控。',
                 contactTitle: 'Visit & Booking Info',
                 contactAddress: '📍 2F, 158 Yeonbuk-ro, Yeon-dong, Jeju City, Jeju (AUBE)',
                 contactPhone: '📞 Phone: <a href="tel:050-7135-50623" style="color: #c48c65; text-decoration: none;">050-7135-50623</a>',
@@ -649,8 +877,7 @@
                 headerTitle: 'AUBE 美睫沙龙',
                 headerSubtitle: '济州睫毛烫与延长专业 | 一睁眼就有浓密睫毛',
                 navIntro: '介绍',
-                navCalendar: '预约日历',
-                navBlog: '博客',
+                navNotice: '公告',
                 navBooking: '立即预约',
                 heroTitle: 'JEJU AUBE',
                 introTitle: '什么是AUBE？',
@@ -662,8 +889,24 @@
                 cardSpecialtyDesc: '睫毛烫与LED点缀延长<br>皮肤管理与美容护理',
                 cardBooking: '预约方式',
                 cardBookingDesc: '100%预约制运营<br>可当日预约咨询<br>上午10点开始营业',
-                calendarTitle: '预约日历',
-                calendarDesc: '请查看下方日历中的可用时间，然后致电确认预约。',
+                wechatTitle: '微信咨询',
+                wechatDesc: '通过微信轻松联系我们',
+                wechatPlaceholder: '微信二维码\n即将推出',
+                wechatIdLabel: '微信ID: 即将推出',
+                wechatBtn: '微信咨询',
+                xiaohongshuBtn: '小红书',
+                instagramBtn: 'Instagram',
+                noticeTitle: '门店须知',
+                noticeEtiquette: '入店礼仪',
+                noticeEtiquetteItems: [
+                    '请保持低声交谈。',
+                    '请勿在店内接打电话。',
+                    '感谢您配合维护舒适的氛围。'
+                ],
+                noticeCctv: 'CCTV通知',
+                noticeCctvText: '为了您的安全，本店已开启CCTV监控。',
+                noticeCctvEn: 'CCTV is in operation for your safety.',
+                noticeCctvZh: '为了您的安全，本店已开启CCTV监控。',
                 contactTitle: '访问与预约信息',
                 contactAddress: '📍 济州特别自治道济州市莲洞莲北路158号2楼 (AUBE)',
                 contactPhone: '📞 电话: <a href="tel:050-7135-50623" style="color: #c48c65; text-decoration: none;">050-7135-50623</a>',
@@ -675,165 +918,71 @@
             }
         };
 
-        const translations = {
+        // ──────────────────────────────────────────────
+        //  챗봇 UI 텍스트
+        // ──────────────────────────────────────────────
+        const chatUI = {
             ko: {
-                title: 'AUBE 챗봇', placeholder: '메시지를 입력하세요...', send: '전송',
-                welcome: '안녕하세요! 오브래쉬 전담 상담사입니다. 필요한 내용을 편하게 질문해 주세요.',
-                options: ['영업시간 문의', '위치 안내', '서비스 안내', '예약 방법'],
-                fallback: '지금 바로 떠오르는 정보가 없네요. 다른 표현으로 한 번 더 말씀해 주시겠어요?'
+                title: 'AUBE 챗봇',
+                subtitle: 'AI 매장 안내',
+                placeholder: '메시지를 입력하세요...',
+                send: '전송',
+                welcome: '안녕하세요! 오브래쉬 AUBE 전용 AI 안내 챗봇입니다.\n위치, 영업시간, 서비스, 예약 방법 등 궁금한 점을 편하게 물어보세요.',
+                quickActions: ['영업시간', '위치 안내', '서비스 안내', '예약 방법', 'WeChat 문의', '주차 안내'],
+                typing: '답변을 준비하고 있어요...',
+                error: '죄송합니다. 일시적인 오류가 발생했습니다. 잠시 후 다시 시도해주세요.'
             },
             en: {
-                title: 'AUBE Chatbot', placeholder: 'Type a message...', send: 'Send',
-                welcome: 'Hi, this is the AUBE concierge desk. Ask me anything and I\'ll share what I know.',
-                options: ['Business Hours', 'Location', 'Services', 'Booking'],
-                fallback: 'I don’t have a clear answer for that yet. Could you rephrase or ask something else?'
+                title: 'AUBE Chatbot',
+                subtitle: 'AI Concierge',
+                placeholder: 'Type a message...',
+                send: 'Send',
+                welcome: 'Hello! I\'m the AUBE AI concierge chatbot.\nFeel free to ask about our location, hours, services, booking, and more.',
+                quickActions: ['Business Hours', 'Location', 'Services', 'Booking', 'WeChat', 'Parking'],
+                typing: 'Preparing an answer...',
+                error: 'Sorry, something went wrong. Please try again in a moment.'
             },
             zh: {
-                title: 'AUBE 聊天机器人', placeholder: '输入消息...', send: '发送',
-                welcome: '您好，这里是AUBE专属顾问，有任何疑问都可以直接问我。',
-                options: ['营业时间', '位置', '服务', '预约方法'],
-                fallback: '暂时没有确切的答案，可以换个方式再说一次吗？'
+                title: 'AUBE 聊天机器人',
+                subtitle: 'AI 门店向导',
+                placeholder: '输入消息...',
+                send: '发送',
+                welcome: '您好！我是AUBE专属AI客服。\n关于位置、营业时间、服务、预约等任何问题，请随时提问。',
+                quickActions: ['营业时间', '位置', '服务', '预约方法', '微信咨询', '停车'],
+                typing: '正在准备回答...',
+                error: '抱歉，出现了暂时性的错误。请稍后再试。'
             }
         };
 
-        const webSearchDigest = {
-            hours: {
-                ko: '2025년 3월자 안내에서 오전 10시 ~ 저녁 7시 운영, 공휴일은 유동적이라고 정리돼요.',
-                en: 'Mar 2025 notices show opening hours from 10 AM to 7 PM with flexible holiday schedules.',
-                zh: '2025年3月资讯显示营业时间10:00~19:00，节假日弹性调整。'
-            },
-            location: {
-                ko: '지도·후기 모두 “제주시 연북로 158 2층, 연동 중앙버스정류장 도보 3분”으로 정리돼 있습니다.',
-                en: 'Maps/blogs agree on 2F, 158 Yeonbuk-ro, Yeon-dong—about a 3‑minute walk from Yeondong central bus stop.',
-                zh: '地图与评论一致标注济州市莲北路158号2楼，距莲洞中央站步行约3分钟。'
-            },
-            services: {
-                ko: '최신 인스타 리뷰에선 LED 포인트 연장+속눈썹 펌 패키지가 대표 시술이고, 손상 케어 라인도 운영한다고 해요.',
-                en: 'Recent IG reviews highlight LED point extensions paired with lash perm packages plus a gentle recovery care line.',
-                zh: '最新IG评价提到LED点缀延长搭配睫毛烫最受欢迎，并附有柔和修护疗程。'
-            },
-            booking: {
-                ko: '예약은 전면 사전제로, 후기 대부분이 카카오 채널 또는 050-7135-50623 전화로 확정했다고 남겼습니다.',
-                en: 'Sources insist on appointments only; most guests confirm via Kakao channel or by calling 050-7135-50623.',
-                zh: '全部为预约制，多数顾客透过Kakao频道或拨打050-7135-50623确认。'
-            },
-            parking: {
-                ko: '네이버 리뷰에선 전용 주차장은 없고, 건물 앞 공영주차장 1시간 무료를 안내받았다는 후기가 많아요.',
-                en: 'Recent Naver posts say there\'s no private lot, but the public lot in front offers the first hour free.',
-                zh: '最新评论提到没有专属停车位，但大楼前公共停车场首小时免费。'
-            },
-            price: {
-                ko: '2025년 초 온라인 시세는 펌+LED 패키지 9~11만 원대가 가장 많이 언급되고, 정확한 금액은 상담 시 확정돼요.',
-                en: 'Early 2025 price sheets mention perm+LED bundles around 90–110K KRW, finalized after consultation.',
-                zh: '2025年初价目表显示烫+LED组合约9~11万韩元，确切金额以咨询为准。'
-            }
+        // ──────────────────────────────────────────────
+        //  매장 정보 Context (챗봇에 전달)
+        // ──────────────────────────────────────────────
+        const aubeContext = {
+            name: '오브래쉬 AUBE',
+            address: '제주특별자치도 제주시 연북로 158 2층',
+            phone: '050-7135-50623',
+            hours: '오전 10시부터 운영, 예약제 중심',
+            services: [
+                '속눈썹 펌',
+                '속눈썹 연장',
+                'LED 포인트 연장',
+                '뷰티 케어'
+            ],
+            booking: 'WeChat 문의 또는 전화 문의 (050-7135-50623)',
+            parking: '전용 주차장은 없으나, 건물 앞 공영주차장 이용 가능 (1시간 무료)',
+            etiquette: [
+                '큰 소리의 대화 자제',
+                '휴대전화 통화 자제',
+                '다른 고객을 위한 편안한 분위기 유지 협조'
+            ],
+            cctv: '고객 안전을 위해 CCTV 운영 중',
+            location_tip: '연동 중앙버스정류장에서 도보 약 3분',
+            instagram: 'https://www.instagram.com/aube_lash_/'
         };
 
-        const consultantTemplates = {
-            ko: info => `지금 확인드린 바로는 ${info} 추가 문의는 매장으로 연락 주시면 바로 도와드릴 수 있어요.`,
-            en: info => `Here’s what I can share right now: ${info} If you need more detail, just give the studio a quick call.`,
-            zh: info => `目前掌握的情况是：${info} 若想了解更细节，欢迎直接联络门店。`
-        };
-
-        const detectTopic = (text) => {
-            const lower = text.toLowerCase();
-            if (/[영營][업营]?시간|hour|open/.test(text)) return 'hours';
-            if (/위치|어디|location|map/.test(lower)) return 'location';
-            if (/서비스|시술|program|service/.test(lower)) return 'services';
-            if (/예약|book|reser/.test(lower)) return 'booking';
-            if (/주차|parking/.test(lower)) return 'parking';
-            if (/가격|비용|price|cost/.test(lower)) return 'price';
-            return null;
-        };
-
-        const getConsultantReply = (topic) => {
-            const data = webSearchDigest[topic];
-            const t = translations[chatLang];
-            if (!data) return t.fallback;
-            const template = consultantTemplates[chatLang];
-            return template ? template(data[chatLang]) : data[chatLang];
-        };
-
-        function toggleChatbot() {
-            const w = document.getElementById('chatbotWindow');
-            w.classList.toggle('open');
-            if (w.classList.contains('open') && document.getElementById('chatbotMessages').children.length === 0) {
-                initChat();
-            }
-        }
-
-        function changeChatLang(lang) {
-            chatLang = lang;
-            document.querySelectorAll('.chatbot-lang-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            document.getElementById('chatbotTitle').textContent = translations[lang].title;
-            document.getElementById('chatbotInput').placeholder = translations[lang].placeholder;
-            document.getElementById('chatbotSendBtn').textContent = translations[lang].send;
-            document.getElementById('chatbotMessages').innerHTML = '';
-            initChat();
-        }
-
-        function initChat() {
-            const t = translations[chatLang];
-            addBotMessage(t.welcome);
-            const optionsDiv = document.createElement('div');
-            optionsDiv.className = 'chatbot-options';
-            t.options.forEach((option, index) => {
-                const btn = document.createElement('button');
-                btn.className = 'chatbot-option-btn';
-                btn.textContent = option;
-                btn.onclick = () => handleOption(index);
-                optionsDiv.appendChild(btn);
-            });
-            document.getElementById('chatbotMessages').lastElementChild.appendChild(optionsDiv);
-        }
-
-        function handleOption(index) {
-            const optionTopics = ['hours', 'location', 'services', 'booking'];
-            const t = translations[chatLang];
-            const topic = optionTopics[index] || null;
-            addUserMessage(t.options[index]);
-            setTimeout(() => {
-                addBotMessage(getConsultantReply(topic) || t.fallback);
-            }, 600);
-        }
-
-        function addBotMessage(text) {
-            const messagesDiv = document.getElementById('chatbotMessages');
-            const msgDiv = document.createElement('div');
-            msgDiv.className = 'chatbot-message bot';
-            msgDiv.textContent = text;
-            messagesDiv.appendChild(msgDiv);
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-        }
-
-        function addUserMessage(text) {
-            const messagesDiv = document.getElementById('chatbotMessages');
-            const msgDiv = document.createElement('div');
-            msgDiv.className = 'chatbot-message user';
-            msgDiv.textContent = text;
-            messagesDiv.appendChild(msgDiv);
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chatbotInput');
-            const text = input.value.trim();
-            if (text) {
-                addUserMessage(text);
-                input.value = '';
-                setTimeout(() => {
-                    const topic = detectTopic(text);
-                    const t = translations[chatLang];
-                    if (topic) {
-                        addBotMessage(getConsultantReply(topic));
-                    } else {
-                        addBotMessage(t.fallback);
-                    }
-                }, 600);
-            }
-        }
-
+        // ──────────────────────────────────────────────
+        //  페이지 동적 생성
+        // ──────────────────────────────────────────────
         const createElement = (tag, attrs = {}, html = '') => {
             const el = document.createElement(tag);
             for (let [key, val] of Object.entries(attrs)) {
@@ -847,6 +996,7 @@
             return el;
         };
 
+        // — Header —
         const header = createElement('header', {}, `
       <div class="lang-selector-top">
         <button class="lang-btn active" data-lang="ko" onclick="changePageLang('ko')">한국어</button>
@@ -861,23 +1011,25 @@
     `);
         document.body.insertBefore(header, document.body.firstChild);
 
+        // — Navigation —
         const nav = createElement('nav');
         [
             { key: 'navIntro', href: '#intro' },
-            { key: 'navCalendar', href: '#calendar' },
-            { key: 'navBlog', href: 'blog1.html' },
+            { key: 'navNotice', href: 'notice.html' },
             { key: 'navBooking', href: '#contact' }
         ].forEach(item => {
             const a = createElement('a', { href: item.href, 'data-translate': item.key }, pageTranslations[pageLang][item.key]);
             nav.appendChild(a);
         });
-        document.body.insertBefore(nav, document.querySelector('.chatbot-button'));
+        document.body.insertBefore(nav, document.getElementById('chatbotToggle'));
 
+        // — Hero —
         const hero = createElement('section', { class: 'hero' });
         const heroH2 = createElement('h2', { 'data-translate': 'heroTitle' }, pageTranslations[pageLang].heroTitle);
         hero.appendChild(heroH2);
-        document.body.insertBefore(hero, document.querySelector('.chatbot-button'));
+        document.body.insertBefore(hero, document.getElementById('chatbotToggle'));
 
+        // — Intro Section —
         const intro = createElement('section', { id: 'intro', class: 'intro-section fade-in' });
         const introH3 = createElement('h3', { 'data-translate': 'introTitle' }, pageTranslations[pageLang].introTitle);
         const introP1 = createElement('p', { 'data-translate': 'introText1' }, pageTranslations[pageLang].introText1);
@@ -903,22 +1055,67 @@
             infoGrid.appendChild(cardDiv);
         });
         intro.appendChild(infoGrid);
-        document.body.insertBefore(intro, document.querySelector('.chatbot-button'));
+        document.body.insertBefore(intro, document.getElementById('chatbotToggle'));
 
-        const calendarSection = createElement('section', { id: 'calendar', class: 'calendar-section fade-in' });
-        const calendarH3 = createElement('h3', { 'data-translate': 'calendarTitle' }, pageTranslations[pageLang].calendarTitle);
-        const calendarP = createElement('p', { 'data-translate': 'calendarDesc' }, pageTranslations[pageLang].calendarDesc);
-        const calendarWrapper = createElement('div', { class: 'calendar-wrapper' });
-        const calendarIframe = createElement('iframe', { 
-            title: pageTranslations[pageLang].calendarTitle,
-            src: 'https://calendar.google.com/calendar/embed?src=ko.south_korea%23holiday%40group.v.calendar.google.com&ctz=Asia%2FSeoul'
-        });
-        calendarWrapper.appendChild(calendarIframe);
-        calendarSection.appendChild(calendarH3);
-        calendarSection.appendChild(calendarP);
-        calendarSection.appendChild(calendarWrapper);
-        document.body.insertBefore(calendarSection, document.querySelector('.chatbot-button'));
+        // — WeChat & Social Section —
+        const wechatSection = createElement('section', { id: 'wechat', class: 'wechat-section fade-in' });
+        wechatSection.innerHTML = `
+      <h3 data-translate="wechatTitle">${pageTranslations[pageLang].wechatTitle}</h3>
+      <p class="wechat-desc" data-translate="wechatDesc">${pageTranslations[pageLang].wechatDesc}</p>
+      <div class="wechat-qr-area">
+        <!-- TODO: WeChat QR 이미지가 준비되면 아래 placeholder를 <img src="wechat-qr.png" alt="WeChat QR"> 로 교체하세요 -->
+        <div class="wechat-qr-placeholder" data-translate="wechatPlaceholder">${pageTranslations[pageLang].wechatPlaceholder}</div>
+      </div>
+      <!-- TODO: WeChat ID가 확정되면 아래 텍스트를 업데이트하세요 -->
+      <p class="wechat-id-text" data-translate="wechatIdLabel">${pageTranslations[pageLang].wechatIdLabel}</p>
+      <div class="social-buttons">
+        <button class="social-btn wechat" onclick="alert('WeChat QR 코드를 스캔해주세요.')" data-translate="wechatBtn">
+          💬 ${pageTranslations[pageLang].wechatBtn}
+        </button>
+        <!-- TODO: Xiaohongshu 실제 URL이 확정되면 href="#" 부분을 교체하세요 -->
+        <a href="#" class="social-btn xiaohongshu" target="_blank" rel="noopener noreferrer" data-translate="xiaohongshuBtn">
+          📕 ${pageTranslations[pageLang].xiaohongshuBtn}
+        </a>
+        <a href="https://www.instagram.com/aube_lash_/" class="social-btn instagram" target="_blank" rel="noopener noreferrer" data-translate="instagramBtn">
+          📷 ${pageTranslations[pageLang].instagramBtn}
+        </a>
+      </div>
+    `;
+        document.body.insertBefore(wechatSection, document.getElementById('chatbotToggle'));
 
+        // — Notice Section (매장 이용 안내 + CCTV) —
+        const noticeSection = createElement('section', { id: 'notice', class: 'fade-in' });
+        function renderNoticeSection() {
+            const t = pageTranslations[pageLang];
+            noticeSection.innerHTML = `
+        <h3 data-translate="noticeTitle">${t.noticeTitle}</h3>
+        
+        <div class="notice-card">
+          <h4><span class="notice-icon">🤫</span> <span data-translate="noticeEtiquette">${t.noticeEtiquette}</span></h4>
+          <ul>
+            ${t.noticeEtiquetteItems.map(item => `<li>${item}</li>`).join('')}
+          </ul>
+          ${pageLang === 'ko' ? `
+          <div class="multilang-text">
+            <p><span class="lang-label">EN</span> Please keep conversations at a low volume and refrain from phone calls.</p>
+            <p><span class="lang-label">ZH</span> 请保持低声交谈，请勿在店内接打电话。</p>
+          </div>` : ''}
+        </div>
+
+        <div class="notice-card">
+          <h4><span class="notice-icon">📹</span> <span data-translate="noticeCctv">${t.noticeCctv}</span></h4>
+          <p data-translate="noticeCctvText">${t.noticeCctvText}</p>
+          <div class="multilang-text">
+            <p><span class="lang-label">EN</span> ${t.noticeCctvEn}</p>
+            <p><span class="lang-label">ZH</span> ${t.noticeCctvZh}</p>
+          </div>
+        </div>
+      `;
+        }
+        renderNoticeSection();
+        document.body.insertBefore(noticeSection, document.getElementById('chatbotToggle'));
+
+        // — Contact Section —
         const contact = createElement('section', { id: 'contact', class: 'fade-in', style: 'text-align: center;' });
         const contactH3 = createElement('h3', { 'data-translate': 'contactTitle' }, pageTranslations[pageLang].contactTitle);
         const contactP1 = createElement('p');
@@ -939,8 +1136,9 @@
         contact.appendChild(contactP2);
         contact.appendChild(contactP3);
         contact.appendChild(contactP4);
-        document.body.insertBefore(contact, document.querySelector('.chatbot-button'));
+        document.body.insertBefore(contact, document.getElementById('chatbotToggle'));
 
+        // — Footer —
         const footer = createElement('footer');
         const footerP1 = createElement('p');
         footerP1.innerHTML = `<strong data-translate="footerTitle">${pageTranslations[pageLang].footerTitle}</strong>`;
@@ -948,13 +1146,16 @@
         footerP2.innerHTML = `<span data-translate="footerAddress">${pageTranslations[pageLang].footerAddress}</span>`;
         const footerP3 = createElement('p');
         footerP3.innerHTML = `<span data-translate="footerInfo">${pageTranslations[pageLang].footerInfo}</span>`;
-        const footerP4 = createElement('p', { style: 'margin-top: 20px;' }, '© 2025 AUBE. All rights reserved.');
+        const footerP4 = createElement('p', { style: 'margin-top: 20px;' }, `© ${new Date().getFullYear()} AUBE. All rights reserved.`);
         footer.appendChild(footerP1);
         footer.appendChild(footerP2);
         footer.appendChild(footerP3);
         footer.appendChild(footerP4);
-        document.body.insertBefore(footer, document.querySelector('.chatbot-button'));
+        document.body.insertBefore(footer, document.getElementById('chatbotToggle'));
 
+        // ──────────────────────────────────────────────
+        //  다국어 전환
+        // ──────────────────────────────────────────────
         function changePageLang(lang) {
             pageLang = lang;
             document.documentElement.lang = lang;
@@ -972,23 +1173,35 @@
                 const key = el.getAttribute('data-translate');
                 const translation = pageTranslations[lang][key];
                 if (translation) {
-                    // 페이드 효과
                     el.classList.add('lang-transition', 'fade-out');
                     setTimeout(() => {
                         if (el.tagName === 'A' && el.href && el.href.includes('tel:')) {
-                            // 전화 링크는 HTML 유지
                             el.innerHTML = translation;
-                        } else if (el.innerHTML.includes('<')) {
-                            // HTML 포함된 경우
+                        } else if (typeof translation === 'string' && translation.includes('<')) {
                             el.innerHTML = translation;
                         } else {
-                            // 일반 텍스트
                             el.textContent = translation;
                         }
                         el.classList.remove('fade-out');
                     }, 150);
                 }
             });
+
+            // Notice 섹션 재렌더링 (리스트 항목 때문에)
+            setTimeout(() => renderNoticeSection(), 160);
+
+            // Social buttons 아이콘 유지
+            setTimeout(() => {
+                document.querySelectorAll('.social-btn.wechat').forEach(btn => {
+                    if (!btn.textContent.includes('💬')) btn.textContent = '💬 ' + btn.textContent;
+                });
+                document.querySelectorAll('.social-btn.xiaohongshu').forEach(btn => {
+                    if (!btn.textContent.includes('📕')) btn.textContent = '📕 ' + btn.textContent;
+                });
+                document.querySelectorAll('.social-btn.instagram').forEach(btn => {
+                    if (!btn.textContent.includes('📷')) btn.textContent = '📷 ' + btn.textContent;
+                });
+            }, 170);
             
             // 제목 태그 업데이트
             document.title = lang === 'ko' ? '오브래쉬 AUBE | 제주 속눈썹 펌 & 연장 전문' :
@@ -996,6 +1209,147 @@
                            'AUBE 美睫沙龙 | 济州睫毛烫与延长专业';
         }
 
+        // ──────────────────────────────────────────────
+        //  Gemini AI 챗봇
+        // ──────────────────────────────────────────────
+        function toggleChatbot() {
+            const w = document.getElementById('chatbotWindow');
+            w.classList.toggle('open');
+            if (w.classList.contains('open') && document.getElementById('chatbotMessages').children.length === 0) {
+                initChat();
+            }
+        }
+
+        function changeChatLang(lang, btnEl) {
+            chatLang = lang;
+            document.querySelectorAll('.chatbot-lang-btn').forEach(btn => btn.classList.remove('active'));
+            btnEl.classList.add('active');
+            const ui = chatUI[lang];
+            document.getElementById('chatbotTitle').textContent = ui.title;
+            document.getElementById('chatbotSubtitle').textContent = ui.subtitle;
+            document.getElementById('chatbotInput').placeholder = ui.placeholder;
+            document.getElementById('chatbotSendBtn').textContent = ui.send;
+            document.getElementById('chatbotMessages').innerHTML = '';
+            initChat();
+        }
+
+        function initChat() {
+            const ui = chatUI[chatLang];
+            addBotMessage(ui.welcome);
+            
+            // Quick action buttons
+            const actionsDiv = document.createElement('div');
+            actionsDiv.className = 'chatbot-quick-actions';
+            ui.quickActions.forEach(action => {
+                const btn = document.createElement('button');
+                btn.className = 'chatbot-quick-btn';
+                btn.textContent = action;
+                btn.onclick = () => {
+                    sendMessageText(action);
+                };
+                actionsDiv.appendChild(btn);
+            });
+            document.getElementById('chatbotMessages').appendChild(actionsDiv);
+        }
+
+        function addBotMessage(text) {
+            const messagesDiv = document.getElementById('chatbotMessages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'chatbot-message bot';
+            msgDiv.textContent = text;
+            messagesDiv.appendChild(msgDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            return msgDiv;
+        }
+
+        function addUserMessage(text) {
+            const messagesDiv = document.getElementById('chatbotMessages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'chatbot-message user';
+            msgDiv.textContent = text;
+            messagesDiv.appendChild(msgDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function addTypingIndicator() {
+            const messagesDiv = document.getElementById('chatbotMessages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'chatbot-message typing';
+            msgDiv.id = 'typingIndicator';
+            msgDiv.textContent = chatUI[chatLang].typing;
+            messagesDiv.appendChild(msgDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const el = document.getElementById('typingIndicator');
+            if (el) el.remove();
+        }
+
+        function collectPageContext() {
+            // 현재 페이지의 공지/안내 데이터를 수집하여 Context 생성
+            const t = pageTranslations['ko']; // 항상 한국어 원본 데이터 전달
+            return JSON.stringify({
+                store: aubeContext,
+                notices: {
+                    etiquette: t.noticeEtiquetteItems,
+                    cctv: t.noticeCctvText,
+                    wechat: 'WeChat 문의 가능 (QR코드 또는 버튼 사용)'
+                }
+            });
+        }
+
+        async function sendMessageText(text) {
+            if (isSending || !text.trim()) return;
+            isSending = true;
+
+            addUserMessage(text);
+            addTypingIndicator();
+
+            const sendBtn = document.getElementById('chatbotSendBtn');
+            sendBtn.disabled = true;
+
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        message: text,
+                        lang: chatLang,
+                        context: collectPageContext()
+                    })
+                });
+
+                removeTypingIndicator();
+
+                if (!response.ok) {
+                    throw new Error('API Error');
+                }
+
+                const data = await response.json();
+                addBotMessage(data.reply || chatUI[chatLang].error);
+            } catch (err) {
+                removeTypingIndicator();
+                addBotMessage(chatUI[chatLang].error);
+                console.error('Chatbot error:', err);
+            } finally {
+                isSending = false;
+                sendBtn.disabled = false;
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatbotInput');
+            const text = input.value.trim();
+            if (text) {
+                input.value = '';
+                sendMessageText(text);
+            }
+        }
+
+        // ──────────────────────────────────────────────
+        //  Scroll Animations
+        // ──────────────────────────────────────────────
         const onScroll = () => {
             document.querySelectorAll('.fade-in').forEach(el => {
                 const rect = el.getBoundingClientRect();

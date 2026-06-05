@@ -46,9 +46,9 @@ export default async function handler(req, res) {
     };
 
     const fallbackMsg = {
-        ko: '정확한 내용은 매장으로 직접 문의해주세요. (전화: 050-7135-50623)',
-        en: 'For accurate information, please contact the store directly. (Phone: 050-7135-50623)',
-        zh: '如需准确信息，请直接联系门店。(电话: 050-7135-50623)'
+        ko: '정확한 내용은 매장으로 직접 문의해주세요. (전화: 010-7365-0623)',
+        en: 'For accurate information, please contact the store directly. (Phone: 010-7365-0623)',
+        zh: '如需准确信息，请直接联系门店。(电话: 010-7365-0623)'
     };
 
     // 시스템 프롬프트: AUBE 매장 정보 + 안내 데이터 포함
@@ -57,7 +57,7 @@ export default async function handler(req, res) {
 ## 매장 기본 정보
 - 매장명: 오브래쉬 AUBE
 - 주소: 제주특별자치도 제주시 연북로 158 2층
-- 전화: 050-7135-50623
+- 전화: 010-7365-0623
 - 운영시간: 오전 10시부터 운영, 예약제 중심
 - 위치 팁: 연동 중앙버스정류장에서 도보 약 3분
 
@@ -69,7 +69,7 @@ export default async function handler(req, res) {
 
 ## 예약/문의
 - WeChat 문의 가능
-- 전화 문의: 050-7135-50623
+- 전화 문의: 010-7365-0623
 - 100% 예약제 운영, 당일 예약 문의 가능
 
 ## 주차

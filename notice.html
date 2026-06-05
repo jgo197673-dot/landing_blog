@@ -240,40 +240,45 @@
 
         /* WeChat QR Area */
         .wechat-qr-box {
-            display: inline-block;
-            background: #fff;
-            border: 1px solid #e5d9cd;
-            padding: 15px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #faf6f0;
+            border: 1px solid #f2e9df;
+            padding: 12px;
             margin-bottom: 12px;
+            border-radius: 2px;
         }
 
         .wechat-qr-box img {
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             display: block;
+            mix-blend-mode: multiply;
         }
 
         .wechat-id {
-            font-size: 0.9rem;
-            color: #8c7f72;
+            font-size: 0.85rem;
+            color: #a39281;
             margin-top: 5px;
             letter-spacing: 0.5px;
             font-family: 'Outfit', sans-serif;
+            font-weight: 300;
         }
 
         .wechat-btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 24px;
-            background: #c48c65;
-            color: #fff;
+            gap: 6px;
+            padding: 8px 24px;
+            background: transparent;
+            color: #8c7f72;
             border-radius: 2px;
-            border: none;
-            font-weight: 500;
-            font-size: 0.85rem;
+            border: 1px solid #e5d9cd;
+            font-weight: 400;
+            font-size: 0.8rem;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.4s ease;
             margin-top: 15px;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -281,9 +286,9 @@
         }
 
         .wechat-btn:hover {
-            background: #8e6d50;
-            transform: translateY(-1px);
-            box-shadow: 0 4px 15px rgba(142, 109, 80, 0.15);
+            color: #c48c65;
+            border-color: #c48c65;
+            background: transparent;
         }
 
         /* 3-Column trilingual poster style layout (Image 3) */
@@ -611,37 +616,12 @@
                     <div class="brand-divider">✦</div>
                 </div>
                 
-                <div class="peaceful-columns">
-                    <div class="peaceful-col">
-                        <div class="col-lang-tag">KO</div>
-                        이곳은 모든 고객님이<br>
-                        편안한 휴식을 위해 이용하시는 공간입니다.<br>
-                        다른 고객님들을 위해 대화와 휴대전화 사용은<br>
-                        조용히 부탁드립니다.<br>
-                        편안한 분위기 조성에 협조해 주셔서<br>
-                        감사합니다.
-                    </div>
-                    <div class="peaceful-col">
-                        <div class="col-lang-tag">EN</div>
-                        Welcome to our relaxation space.<br>
-                        For the comfort and enjoyment of all guests,<br>
-                        we kindly ask that you keep conversations<br>
-                        and mobile phone use quiet while in the salon.<br>
-                        Thank you for helping us<br>
-                        maintain a peaceful atmosphere.
-                    </div>
-                    <div class="peaceful-col">
-                        <div class="col-lang-tag">ZH</div>
-                        为了让每位顾客都能享受宁静舒适的休息时光，<br>
-                        请您轻声交谈，并将手机调至静音模式。<br>
-                        感谢您的理解与配合，<br>
-                        共同维护温馨、舒适的环境。
-                    </div>
+                <div class="peaceful-content" id="peacefulText" style="text-align: center; font-size: 1.05rem; line-height: 1.8; color: #5a5046; padding: 20px 0 40px;">
                 </div>
                 
                 <div class="cctv-banner">
                     <svg viewBox="0 0 24 24"><path d="M16 10.5V7c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 15H4V8h10v7z"/></svg>
-                    <span>고객님의 안전을 위해 CCTV가 운영되고 있습니다.  |  CCTV is in operation for your safety.  |  为了您的安全，本店已开启CCTV监控。</span>
+                    <span id="cctvText"></span>
                 </div>
             </div>
         </div>
@@ -718,11 +698,8 @@
                     btn: 'WeChat 문의'
                 },
                 peaceful: {
-                    title: 'A Peaceful Moment',
-                    desc: '이곳은 모든 고객님이 편안한 휴식을 위해 이용하시는 공간입니다.\n다른 고객님들을 위해 대화와 휴대전화 사용은 조용히 부탁드립니다.\n편안한 분위기 조성에 협조해 주셔서 감사합니다.'
-                },
-                cctv: {
-                    text: '고객님의 안전을 위해 CCTV가 운영되고 있습니다.'
+                    text: '이곳은 모든 고객님이<br>편안한 휴식을 위해 이용하시는 공간입니다.<br>다른 고객님들을 위해 대화와 휴대전화 사용은<br>조용히 부탁드립니다.<br>편안한 분위기 조성에 협조해 주셔서<br>감사합니다.',
+                    cctv: '고객님의 안전을 위해 CCTV가 운영되고 있습니다.'
                 },
                 map: {
                     title: 'Location',
@@ -764,11 +741,8 @@
                     btn: 'WeChat Inquiry'
                 },
                 peaceful: {
-                    title: 'A Peaceful Moment',
-                    desc: 'Welcome to our relaxation space.\nFor the comfort and enjoyment of all guests, we kindly ask that you keep conversations and mobile phone use quiet while in the salon.\nThank you for helping us maintain a peaceful atmosphere.'
-                },
-                cctv: {
-                    text: 'CCTV is in operation for your safety.'
+                    text: 'Welcome to our relaxation space.<br>For the comfort and enjoyment of all guests,<br>we kindly ask that you keep conversations<br>and mobile phone use quiet while in the salon.<br>Thank you for helping us<br>maintain a peaceful atmosphere.',
+                    cctv: 'CCTV is in operation for your safety.'
                 },
                 map: {
                     title: 'Location',
@@ -810,11 +784,8 @@
                     btn: '微信咨询'
                 },
                 peaceful: {
-                    title: 'A Peaceful Moment',
-                    desc: '为了让每位顾客都能享受宁静舒适的休息时光，\n请您轻声交谈，并将手机调至静音模式。\n感谢您的理解与配合，\n共同维护温馨、舒适的环境。'
-                },
-                cctv: {
-                    text: '为了您的安全，本店已开启CCTV监控。'
+                    text: '为了让每位顾客都能享受宁静舒适的休息时光，<br>请您轻声交谈，并将手机调至静音模式。<br>感谢您的理解与配合，<br>共同维护温馨、舒适的环境。',
+                    cctv: '为了您的安全，本店已开启CCTV监控。'
                 },
                 map: {
                     title: 'Location',
@@ -863,12 +834,9 @@
                 wechatPoints.appendChild(li);
             });
 
-            // Peaceful Moment
-            document.getElementById('peacefulTitle').textContent = c.peaceful.title;
-            document.getElementById('peacefulDesc').innerHTML = c.peaceful.desc.replace(/\n/g, '<br>');
-
-            // CCTV
-            document.getElementById('cctvText').textContent = c.cctv.text;
+            // Peaceful
+            document.getElementById('peacefulText').innerHTML = c.peaceful.text;
+            document.getElementById('cctvText').textContent = c.peaceful.cctv;
 
             // Map
             document.getElementById('mapTitle').textContent = c.map.title;

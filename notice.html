@@ -406,8 +406,7 @@
             <p id="wechatDesc" style="white-space: pre-line; margin-bottom: 24px; color: #5a5046; font-size: 1.02rem; text-align: center;"></p>
             <div class="wechat-area">
                 <div class="wechat-qr-box">
-                    <!-- TODO: WeChat QR 이미지가 준비되면 아래 placeholder를 <img src="wechat-qr.png" alt="WeChat QR Code"> 로 교체하세요 -->
-                    <div class="wechat-qr-placeholder" id="wechatQrPlaceholder">WeChat QR 코드<br>준비 중</div>
+                    <img src="wechat-qr.jpg" alt="WeChat QR Code">
                 </div>
                 <!-- TODO: WeChat ID가 확정되면 아래 텍스트를 업데이트하세요 -->
                 <p class="wechat-id" id="wechatId">WeChat ID: 준비 중</p>
@@ -476,7 +475,6 @@
                 wechat: {
                     title: 'Reservation & WeChat',
                     desc: '예약 우선제로 운영됩니다.\n예약 없이 방문하시는 경우 대기 시간이 발생할 수 있습니다.\n보다 빠른 상담 및 예약은 WeChat을 이용해주세요.',
-                    qrPlaceholder: 'WeChat QR 코드\n준비 중',
                     id: 'WeChat ID: 준비 중',
                     btn: 'WeChat 문의'
                 },
@@ -518,7 +516,6 @@
                 wechat: {
                     title: 'Reservation & WeChat',
                     desc: 'Our salon operates on a reservation-priority system.\nWalk-in customers may experience waiting times.\nFor faster inquiries and reservations, please contact us via WeChat.',
-                    qrPlaceholder: 'WeChat QR Code\nComing Soon',
                     id: 'WeChat ID: Coming Soon',
                     btn: 'WeChat Inquiry'
                 },
@@ -563,7 +560,6 @@
                 wechat: {
                     title: 'Reservation & WeChat',
                     desc: '本店实行预约优先制。\n未预约直接到店时可能需要等待。\n为了更方便地安排时间，请通过微信进行咨询和预约。',
-                    qrPlaceholder: '微信二维码\n即将推出',
                     id: '微信ID: 即将推出',
                     btn: '微信咨询'
                 },
@@ -611,7 +607,6 @@
             // WeChat (Reservation & WeChat)
             document.getElementById('wechatTitle').textContent = c.wechat.title;
             document.getElementById('wechatDesc').innerHTML = c.wechat.desc.replace(/\n/g, '<br>');
-            document.getElementById('wechatQrPlaceholder').innerHTML = c.wechat.qrPlaceholder.replace(/\n/g, '<br>');
             document.getElementById('wechatId').textContent = c.wechat.id;
             document.getElementById('wechatBtnText').textContent = c.wechat.btn;
 

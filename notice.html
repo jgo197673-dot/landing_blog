@@ -6,61 +6,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notice / 안내문 / 公告 — AUBE</title>
     <meta name="description"
-        content="오브래쉬 AUBE 매장 안내문 — WeChat 문의, 매장 이용 안내, CCTV 안내. Store guidelines, WeChat inquiry, CCTV notice.">
+        content="오브래쉬 AUBE 매장 안내문 — WeChat 문의, 예약제 안내, CCTV 운영. Store guidelines, WeChat inquiry, CCTV notice.">
     <meta property="og:title" content="AUBE Notice / 안내문 / 公告" />
-    <meta property="og:description" content="오브래쉬 AUBE 매장 안내 — WeChat, 이용 가이드, CCTV" />
+    <meta property="og:description" content="오브래쉬 AUBE 매장 안내 — WeChat, 예약 가이드, CCTV" />
     <meta property="og:type" content="website" />
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&family=Noto+Serif+KR:wght@300;400;500&display=swap');
+
         body {
             margin: 0;
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background-color: #fffdf9;
-            color: #333;
-            line-height: 1.7;
+            font-family: 'Outfit', 'Pretendard', sans-serif;
+            background-color: #fdfbf7;
+            color: #4a423a;
+            line-height: 1.8;
+            letter-spacing: -0.01em;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 80px 24px;
             position: relative;
         }
 
         .lang-selector-top {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 24px;
+            right: 24px;
             display: flex;
-            gap: 8px;
+            gap: 6px;
         }
 
         .lang-btn {
-            padding: 8px 16px;
-            border: 1px solid #d6a77a;
+            padding: 6px 14px;
+            border: 1px solid #e5d9cd;
             background: #fff;
-            color: #d6a77a;
-            border-radius: 20px;
-            font-size: 0.85rem;
+            color: #8c7f72;
+            border-radius: 4px;
+            font-size: 0.8rem;
             cursor: pointer;
             transition: all 0.3s;
-            font-weight: 500;
+            font-weight: 400;
+            font-family: 'Outfit', sans-serif;
         }
 
         .lang-btn:hover {
-            background: #f9f4ef;
+            background: #faf6f0;
+            color: #c48c65;
+            border-color: #c48c65;
         }
 
         .lang-btn.active {
-            background: #d6a77a;
+            background: #c48c65;
             color: #fff;
+            border-color: #c48c65;
         }
 
         .hero {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeInUp 0.6s ease forwards;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         @keyframes fadeInUp {
@@ -71,39 +78,47 @@
         }
 
         .hero h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 10px;
-            line-height: 1.3;
+            font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+            font-size: 2.6rem;
+            font-weight: 400;
+            color: #2e2620;
+            margin-bottom: 12px;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
         }
 
         .hero .page-label {
             display: inline-block;
-            background: linear-gradient(135deg, #c48c65, #d6a77a);
-            color: #fff;
-            padding: 6px 20px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
+            border: 1px solid #d6a77a;
+            color: #c48c65;
+            background: transparent;
+            padding: 5px 18px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Outfit', sans-serif;
         }
 
         .hero p {
             font-size: 1.05rem;
-            color: #666;
+            color: #8c7f72;
+            font-weight: 300;
+            letter-spacing: 0.5px;
         }
 
         .card {
-            background: #fff;
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            background: #ffffff;
+            border: 1px solid #f0e6dc;
+            border-radius: 8px;
+            padding: 55px 45px;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 30px rgba(196, 140, 101, 0.02);
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeInUp 0.6s ease forwards;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .card:nth-child(3) { animation-delay: 0.1s; }
@@ -113,22 +128,20 @@
         .card:nth-child(7) { animation-delay: 0.5s; }
 
         .card h2 {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .card h2 .card-icon {
-            font-size: 1.5rem;
+            font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #2e2620;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #f5ede5;
+            padding-bottom: 15px;
+            letter-spacing: 0.5px;
+            text-align: center;
         }
 
         .card p {
             font-size: 1.02rem;
-            color: #555;
+            color: #5a5046;
             margin-bottom: 16px;
             line-height: 1.8;
         }
@@ -136,128 +149,104 @@
         .card ul {
             list-style: none;
             padding: 0;
-            margin: 16px 0;
+            margin: 20px 0;
         }
 
         .card ul li {
-            padding: 10px 0;
-            color: #555;
-            font-size: 1.02rem;
+            padding: 12px 0;
+            color: #5a5046;
+            font-size: 1rem;
             position: relative;
-            padding-left: 25px;
+            padding-left: 20px;
+            border-bottom: 1px dashed #f5ede5;
+        }
+
+        .card ul li:last-child {
+            border-bottom: none;
         }
 
         .card ul li::before {
-            content: "•";
+            content: "—";
             color: #d6a77a;
-            font-weight: bold;
-            font-size: 1.5rem;
             position: absolute;
             left: 0;
-            top: 5px;
+            font-weight: 300;
         }
 
         /* WeChat QR Section */
         .wechat-area {
             text-align: center;
-            padding: 30px 0;
+            padding: 20px 0 10px;
         }
 
         .wechat-qr-box {
             display: inline-block;
-            background: #fffaf5;
-            border: 2px dashed #e0d0c0;
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 20px;
+            background: #fdfcf9;
+            border: 1px solid #e5d9cd;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 15px;
         }
 
         .wechat-qr-box img {
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
             display: block;
-            border-radius: 8px;
+            border-radius: 4px;
         }
 
         .wechat-qr-placeholder {
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #f5f0ea;
-            border-radius: 8px;
-            color: #b0956e;
+            background: #faf6f0;
+            border-radius: 4px;
+            color: #a39281;
             font-size: 0.85rem;
             text-align: center;
-            line-height: 1.4;
+            line-height: 1.5;
+            border: 1px dashed #dcd0c4;
         }
 
         .wechat-id {
-            font-size: 0.9rem;
-            color: #999;
-            margin-top: 8px;
+            font-size: 0.95rem;
+            color: #8c7f72;
+            margin-top: 5px;
+            letter-spacing: 0.5px;
         }
 
         .wechat-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 14px 30px;
-            background: #07c160;
+            padding: 12px 35px;
+            background: #c48c65;
             color: #fff;
-            border-radius: 30px;
+            border-radius: 4px;
             border: none;
-            font-weight: 600;
-            font-size: 0.95rem;
+            font-weight: 500;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.3s;
             margin-top: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .wechat-btn:hover {
-            background: #06ad56;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(7, 193, 96, 0.3);
-        }
-
-        /* Multilingual Notice */
-        .multilang-block {
-            margin-top: 20px;
-            padding: 20px;
-            background: #faf8f5;
-            border-radius: 12px;
-            border-left: 4px solid #d6a77a;
-        }
-
-        .multilang-block .lang-row {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin: 8px 0;
-        }
-
-        .multilang-block .lang-tag {
-            display: inline-block;
-            min-width: 28px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: #c48c65;
-            padding-top: 3px;
-        }
-
-        .multilang-block .lang-text {
-            font-size: 0.95rem;
-            color: #555;
-            line-height: 1.6;
+            background: #a8724c;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(196, 140, 101, 0.25);
         }
 
         /* Map */
         .map-container {
             margin-top: 20px;
-            border-radius: 12px;
+            border-radius: 6px;
             overflow: hidden;
-            border: 1px solid #e8e4de;
+            border: 1px solid #f0e6dc;
         }
 
         .map-container iframe {
@@ -276,70 +265,83 @@
 
         .btn {
             display: inline-block;
-            background: #d6a77a;
+            background: #c48c65;
             color: #fff;
-            padding: 14px 30px;
-            border-radius: 30px;
+            padding: 12px 30px;
+            border-radius: 4px;
             text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s, transform 0.3s;
-            border: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 1px solid #c48c65;
             cursor: pointer;
-            font-size: 1rem;
-            font-family: inherit;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            font-family: 'Outfit', sans-serif;
+            text-align: center;
         }
 
         .btn:hover {
-            background: #c49666;
-            transform: translateY(-2px);
+            background: #a8724c;
+            border-color: #a8724c;
+            transform: translateY(-1px);
         }
 
         .btn-outline {
             background: transparent;
-            border: 2px solid #d6a77a;
-            color: #d6a77a;
+            border: 1px solid #c48c65;
+            color: #c48c65;
         }
 
         .btn-outline:hover {
-            background: #d6a77a;
+            background: #c48c65;
             color: #fff;
         }
 
         .btn-xiaohongshu {
             background: #ff2442;
+            border-color: #ff2442;
         }
 
         .btn-xiaohongshu:hover {
             background: #e01f3b;
+            border-color: #e01f3b;
         }
 
         .contact-info {
-            background: linear-gradient(135deg, #f9f4ef 0%, #f0ebe5 100%);
-            padding: 25px;
-            border-radius: 12px;
+            background: #faf6f0;
+            padding: 30px;
+            border-radius: 6px;
             margin-top: 20px;
+            border: 1px solid #f0e6dc;
         }
 
         .contact-info p {
-            margin: 10px 0;
-            font-size: 1.02rem;
+            margin: 12px 0;
+            font-size: 0.95rem;
+            color: #5a5046;
         }
 
         .contact-info strong {
-            color: #d6a77a;
+            color: #c48c65;
+            font-weight: 500;
         }
 
         .back-link {
             display: inline-block;
-            margin-bottom: 30px;
-            color: #d6a77a;
+            margin-bottom: 35px;
+            color: #c48c65;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 400;
+            font-size: 0.95rem;
             transition: color 0.3s;
+            letter-spacing: 0.5px;
+            border-bottom: 1px dashed rgba(196, 140, 101, 0.4);
+            padding-bottom: 2px;
         }
 
         .back-link:hover {
-            color: #c49666;
+            color: #8e6d50;
+            border-bottom-color: #8e6d50;
         }
 
         .back-link::before {
@@ -347,24 +349,30 @@
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 50px 20px;
+            }
+
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2.1rem;
             }
 
             .card {
-                padding: 28px 22px;
+                padding: 40px 25px;
             }
 
             .card h2 {
-                font-size: 1.35rem;
+                font-size: 1.5rem;
             }
 
             .btn-group {
                 flex-direction: column;
+                gap: 10px;
             }
 
             .btn {
-                text-align: center;
+                width: 100%;
+                box-sizing: border-box;
             }
 
             .wechat-qr-box img,
@@ -392,10 +400,10 @@
             <p id="heroDesc"></p>
         </section>
 
-        <!-- Notice 1: WeChat 문의 안내 -->
+        <!-- Notice 1: Reservation & WeChat -->
         <div class="card" id="wechatCard">
-            <h2><span class="card-icon">💬</span> <span id="wechatTitle"></span></h2>
-            <p id="wechatDesc"></p>
+            <h2 id="wechatTitle"></h2>
+            <p id="wechatDesc" style="white-space: pre-line; margin-bottom: 24px; color: #5a5046; font-size: 1.02rem; text-align: center;"></p>
             <div class="wechat-area">
                 <div class="wechat-qr-box">
                     <!-- TODO: WeChat QR 이미지가 준비되면 아래 placeholder를 <img src="wechat-qr.png" alt="WeChat QR Code"> 로 교체하세요 -->
@@ -403,19 +411,30 @@
                 </div>
                 <!-- TODO: WeChat ID가 확정되면 아래 텍스트를 업데이트하세요 -->
                 <p class="wechat-id" id="wechatId">WeChat ID: 준비 중</p>
-                <button class="wechat-btn" onclick="alert(wechatAlertMsg())">💬 <span id="wechatBtnText">WeChat 문의</span></button>
+                <button class="wechat-btn" onclick="alert(wechatAlertMsg())"><span id="wechatBtnText">WeChat 문의</span></button>
             </div>
         </div>
 
+        <!-- Notice 2: A Peaceful Moment -->
+        <div class="card" id="peacefulCard">
+            <h2 id="peacefulTitle"></h2>
+            <p id="peacefulDesc" style="white-space: pre-line; color: #5a5046; font-size: 1.02rem; text-align: center;"></p>
+        </div>
 
-        <!-- About AUBE (유지) -->
+        <!-- Notice 3: CCTV Notice -->
+        <div class="card" id="cctvCard">
+            <h2 id="cctvTitle"></h2>
+            <p id="cctvDesc" style="white-space: pre-line; color: #5a5046; font-size: 1.02rem; text-align: center;"></p>
+        </div>
+
+        <!-- About AUBE -->
         <div class="card">
             <h2 id="aboutTitle"></h2>
             <p id="aboutDesc"></p>
             <ul id="aboutList"></ul>
         </div>
 
-        <!-- Map Section (유지) -->
+        <!-- Map Section -->
         <div class="card">
             <h2 id="mapTitle"></h2>
             <p id="mapAddress"></p>
@@ -425,7 +444,7 @@
             <p id="mapTip" style="margin-top: 15px; font-size: 0.95rem; color: #666;"></p>
         </div>
 
-        <!-- Visit Info (유지) -->
+        <!-- Visit Info -->
         <div class="card">
             <h2 id="visitTitle"></h2>
             <div class="contact-info" id="contactInfo"></div>
@@ -461,11 +480,19 @@
                     desc: '매장 이용에 필요한 안내 사항을 확인해주세요.'
                 },
                 wechat: {
-                    title: 'WeChat 문의 안내',
-                    desc: 'WeChat을 통해 편리하게 문의하실 수 있습니다. 아래 QR 코드를 스캔하거나 WeChat ID로 검색해주세요.',
+                    title: 'Reservation & WeChat',
+                    desc: '예약 우선제로 운영됩니다.\n예약 없이 방문하시는 경우 대기 시간이 발생할 수 있습니다.\n보다 빠른 상담 및 예약은 WeChat을 이용해주세요.',
                     qrPlaceholder: 'WeChat QR 코드\n준비 중',
                     id: 'WeChat ID: 준비 중',
                     btn: 'WeChat 문의'
+                },
+                peaceful: {
+                    title: 'A Peaceful Moment',
+                    desc: '이곳은 모든 고객님이 편안한 휴식을 위해 이용하시는 공간입니다.\n다른 고객님들을 위해 대화와 휴대전화 사용은 조용히 부탁드립니다.\n편안한 분위기 조성에 협조해 주셔서 감사합니다.'
+                },
+                cctv: {
+                    title: 'CCTV Notice',
+                    desc: '고객님의 안전을 위해 CCTV가 운영되고 있습니다.'
                 },
                 about: {
                     title: '오브래쉬는 어떤 곳인가요?',
@@ -477,12 +504,12 @@
                     ]
                 },
                 map: {
-                    title: '오시는 길 🗺️',
+                    title: '오시는 길',
                     address: '제주 제주시 연동 연북로 158, 2층 오브래쉬 (AUBE)',
-                    tip: '💡 연동 중앙버스정류장에서 도보 3분, 건물 앞 공영주차장 1시간 무료'
+                    tip: '연동 중앙버스정류장에서 도보 3분, 건물 앞 공영주차장 1시간 무료'
                 },
                 visit: {
-                    title: '방문 & 예약 안내 📍',
+                    title: '방문 & 예약 안내',
                     info: [
                         '<strong>주소</strong>: 제주 제주시 연북로 158, 2층',
                         '<strong>예약문의</strong>: <a href="tel:050-7135-50623" style="color:#d6a77a;text-decoration:none;">050-7135-50623</a>',
@@ -504,11 +531,22 @@
                     desc: 'Please check the important information for your visit.'
                 },
                 wechat: {
-                    title: 'WeChat Inquiry',
-                    desc: 'You can easily contact us through WeChat. Scan the QR code below or search our WeChat ID.',
+                    title: 'Reservation & WeChat',
+                    desc: 'Our salon operates on a reservation-priority system.\nWalk-in customers may experience waiting times.\nFor faster inquiries and reservations, please contact us via WeChat.',
                     qrPlaceholder: 'WeChat QR Code\nComing Soon',
                     id: 'WeChat ID: Coming Soon',
                     btn: 'WeChat Inquiry'
+                },
+                peaceful: {
+                    title: 'A Peaceful Moment',
+                    desc: 'Welcome to our relaxation space.\nFor the comfort and enjoyment of all guests, we kindly ask that conversations and mobile phone use remain quiet while in the salon.\nThank you for helping us maintain a peaceful atmosphere.',
+                    qrPlaceholder: '',
+                    id: '',
+                    btn: ''
+                },
+                cctv: {
+                    title: 'CCTV Notice',
+                    desc: 'CCTV is in operation for your safety.'
                 },
                 about: {
                     title: 'What is AUBE?',
@@ -520,12 +558,12 @@
                     ]
                 },
                 map: {
-                    title: 'How to Find Us 🗺️',
+                    title: 'How to Find Us',
                     address: '2F, 158 Yeonbuk-ro, Yeon-dong, Jeju City (AUBE)',
-                    tip: '💡 3-minute walk from Yeondong central bus stop, public parking out front (first hour free)'
+                    tip: '3-minute walk from Yeondong central bus stop, public parking out front (first hour free)'
                 },
                 visit: {
-                    title: 'Visit & Booking Info 📍',
+                    title: 'Visit & Booking Info',
                     info: [
                         '<strong>Address</strong>: 2F, 158 Yeonbuk-ro, Jeju City',
                         '<strong>Booking</strong>: <a href="tel:050-7135-50623" style="color:#d6a77a;text-decoration:none;">050-7135-50623</a>',
@@ -547,11 +585,19 @@
                     desc: '请查阅到店所需的重要信息。'
                 },
                 wechat: {
-                    title: '微信咨询',
-                    desc: '您可以通过微信与我们联系。请扫描下方二维码或搜索微信ID。',
+                    title: 'Reservation & WeChat',
+                    desc: '本店实行预约优先制。\n未预约直接到店时可能需要等待。\n为了更方便地安排时间，请通过微信进行咨询和预约。',
                     qrPlaceholder: '微信二维码\n即将推出',
                     id: '微信ID: 即将推出',
                     btn: '微信咨询'
+                },
+                peaceful: {
+                    title: 'A Peaceful Moment',
+                    desc: '为了让每位顾客都能享受宁静舒适的休息时光，\n请您轻声交谈，并将手机调至静音模式。\n感谢您的理解与配合，共同维护温馨舒适的环境。'
+                },
+                cctv: {
+                    title: 'CCTV Notice',
+                    desc: '为了您的安全，本店已开启CCTV监控。'
                 },
                 about: {
                     title: '什么是 AUBE？',
@@ -563,12 +609,12 @@
                     ]
                 },
                 map: {
-                    title: '如何前往 🗺️',
+                    title: '如何前往',
                     address: '济州市莲洞莲北路158号2楼 AUBE',
-                    tip: '💡 距离莲洞中央站步行3分钟，楼前公共停车场首小时免费'
+                    tip: '距离莲洞中央站步行3分钟，楼前公共停车场首小时免费'
                 },
                 visit: {
-                    title: '访问与预约 📍',
+                    title: '访问与预约',
                     info: [
                         '<strong>地址</strong>: 济州市莲北路158号2楼',
                         '<strong>预约</strong>: <a href="tel:050-7135-50623" style="color:#d6a77a;text-decoration:none;">050-7135-50623</a>',
@@ -595,13 +641,20 @@
             document.getElementById('heroTitle').textContent = c.hero.title;
             document.getElementById('heroDesc').textContent = c.hero.desc;
 
-            // WeChat
+            // WeChat (Reservation & WeChat)
             document.getElementById('wechatTitle').textContent = c.wechat.title;
-            document.getElementById('wechatDesc').textContent = c.wechat.desc;
-            document.getElementById('wechatQrPlaceholder').innerHTML = c.wechat.qrPlaceholder.replace('\n', '<br>');
+            document.getElementById('wechatDesc').innerHTML = c.wechat.desc.replace(/\n/g, '<br>');
+            document.getElementById('wechatQrPlaceholder').innerHTML = c.wechat.qrPlaceholder.replace(/\n/g, '<br>');
             document.getElementById('wechatId').textContent = c.wechat.id;
             document.getElementById('wechatBtnText').textContent = c.wechat.btn;
 
+            // Peaceful Moment
+            document.getElementById('peacefulTitle').textContent = c.peaceful.title;
+            document.getElementById('peacefulDesc').innerHTML = c.peaceful.desc.replace(/\n/g, '<br>');
+
+            // CCTV Notice
+            document.getElementById('cctvTitle').textContent = c.cctv.title;
+            document.getElementById('cctvDesc').innerHTML = c.cctv.desc.replace(/\n/g, '<br>');
 
             // About
             document.getElementById('aboutTitle').textContent = c.about.title;

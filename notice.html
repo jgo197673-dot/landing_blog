@@ -188,31 +188,32 @@
             text-align: center;
         }
 
-        /* Split layout for WeChat */
+        /* Centered layout for WeChat */
         .wechat-container {
             display: flex;
-            gap: 40px;
+            flex-direction: column;
             align-items: center;
+            gap: 35px;
+            text-align: center;
         }
 
         .wechat-text-side {
-            flex: 1.25;
+            width: 100%;
+            max-width: 600px;
         }
 
         .wechat-qr-side {
-            flex: 0.75;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border-left: 1px solid #f2e9df;
-            padding-left: 40px;
         }
 
         .premium-list {
             list-style: none;
             padding: 0;
             margin: 0;
+            text-align: left;
         }
 
         .premium-list li {
@@ -240,55 +241,17 @@
 
         /* WeChat QR Area */
         .wechat-qr-box {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: #faf6f0;
-            border: 1px solid #f2e9df;
-            padding: 12px;
-            margin-bottom: 12px;
-            border-radius: 2px;
+            display: inline-block;
+            position: relative;
+            z-index: 2;
         }
 
         .wechat-qr-box img {
-            width: 100px;
-            height: 100px;
+            width: 180px;
+            height: 180px;
             display: block;
+            border-radius: 4px;
             mix-blend-mode: multiply;
-        }
-
-        .wechat-id {
-            font-size: 0.85rem;
-            color: #a39281;
-            margin-top: 5px;
-            letter-spacing: 0.5px;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 300;
-        }
-
-        .wechat-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 24px;
-            background: transparent;
-            color: #8c7f72;
-            border-radius: 2px;
-            border: 1px solid #e5d9cd;
-            font-weight: 400;
-            font-size: 0.8rem;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            margin-top: 15px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-family: 'Outfit', sans-serif;
-        }
-
-        .wechat-btn:hover {
-            color: #c48c65;
-            border-color: #c48c65;
-            background: transparent;
         }
 
         /* 3-Column trilingual poster style layout (Image 3) */
@@ -585,18 +548,23 @@
                 <div class="corner-ornament bottom-left"></div>
                 <div class="corner-ornament bottom-right"></div>
                 
-                <h2 id="wechatTitle"></h2>
+                <div class="brand-header" style="text-align: center; margin-bottom: 30px;">
+                    <img src="aube-logo.png" alt="AUBE Logo" style="max-height: 45px; margin-bottom: 12px; opacity: 0.85;">
+                    <div class="brand-subtitle" style="font-family: 'Outfit', sans-serif; font-size: 0.7rem; font-weight: 400; letter-spacing: 0.3em; color: #a39281;">BEAUTY & RELAXATION</div>
+                    <div class="brand-divider" style="margin: 15px auto 0; color: #d6a77a; font-size: 0.8rem;">✦</div>
+                </div>
                 
-                <div class="wechat-container">
-                    <div class="wechat-text-side">
-                        <ul id="wechatPoints" class="premium-list"></ul>
-                    </div>
+                <h2 id="wechatTitle" style="margin-bottom: 10px; font-weight: 400; letter-spacing: 0.05em; font-size: 1.6rem;"></h2>
+                
+                <div class="wechat-container" style="gap: 20px;">
                     <div class="wechat-qr-side">
                         <div class="wechat-qr-box">
                             <img src="wechat-qr.jpg" alt="WeChat QR Code">
                         </div>
-                        <p class="wechat-id" id="wechatId">WeChat ID: 준비 중</p>
-                        <button class="wechat-btn" onclick="alert(wechatAlertMsg())"><span id="wechatBtnText">WeChat 문의</span></button>
+                    </div>
+                    <div class="brand-divider" style="margin: 5px auto 10px; color: #d6a77a; font-size: 0.6rem;">✦</div>
+                    <div class="wechat-text-side">
+                        <ul id="wechatPoints" class="premium-list"></ul>
                     </div>
                 </div>
             </div>
@@ -693,9 +661,7 @@
                         '보다 빠른 상담 및 예약은 WeChat을 이용해주세요.',
                         '다른 고객님이 시술 중인 경우, 쇼파에서 편안히 대기해주시면 순서대로 안내해 드리겠습니다.',
                         '협조해 주셔서 감사합니다.'
-                    ],
-                    id: 'WeChat ID: 준비 중',
-                    btn: 'WeChat 문의'
+                    ]
                 },
                 peaceful: {
                     text: '이곳은 모든 고객님이<br>편안한 휴식을 위해 이용하시는 공간입니다.<br>다른 고객님들을 위해 대화와 휴대전화 사용은<br>조용히 부탁드립니다.<br>편안한 분위기 조성에 협조해 주셔서<br>감사합니다.',
@@ -736,9 +702,7 @@
                         'For more convenient booking assistance, please contact us via WeChat.',
                         'As other customers are currently being served, please have a seat on the sofa and wait comfortably. We will assist you in order.',
                         'Thank you for your understanding and cooperation.'
-                    ],
-                    id: 'WeChat ID: Coming Soon',
-                    btn: 'WeChat Inquiry'
+                    ]
                 },
                 peaceful: {
                     text: 'Welcome to our relaxation space.<br>For the comfort and enjoyment of all guests,<br>we kindly ask that you keep conversations<br>and mobile phone use quiet while in the salon.<br>Thank you for helping us<br>maintain a peaceful atmosphere.',
@@ -779,9 +743,7 @@
                         '为了更方便为您安排时间，请通过微信进行咨询和预约。',
                         '另外，由于店内还有其他顾客，请您先在沙发稍作等候，我们会按顺序为您安排服务。',
                         '感谢您的理解与配合。'
-                    ],
-                    id: '微信ID: 即将推出',
-                    btn: '微信咨询'
+                    ]
                 },
                 peaceful: {
                     text: '为了让每位顾客都能享受宁静舒适的休息时光，<br>请您轻声交谈，并将手机调至静音模式。<br>感谢您的理解与配合，<br>共同维护温馨、舒适的环境。',
@@ -822,8 +784,6 @@
 
             // WeChat (Reservation & WeChat)
             document.getElementById('wechatTitle').textContent = c.wechat.title;
-            document.getElementById('wechatId').textContent = c.wechat.id;
-            document.getElementById('wechatBtnText').textContent = c.wechat.btn;
 
             // WeChat Points
             const wechatPoints = document.getElementById('wechatPoints');

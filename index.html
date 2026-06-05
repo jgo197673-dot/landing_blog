@@ -101,17 +101,6 @@
         header .logo-container img[src=""] {
             display: none;
         }
-        
-        header .logo-container::before {
-            content: "AUBE";
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            font-weight: 300;
-            color: #8e6d50;
-            letter-spacing: 0.2em;
-            display: block;
-        }
-
         header h1 {
             font-family: 'Cormorant Garamond', 'Noto Serif KR', serif;
             font-size: 2.2rem;
@@ -316,35 +305,18 @@
         }
 
         .wechat-qr-area {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: #faf6f0;
-            border: 1px solid #f2e9df;
-            border-radius: 4px;
-            padding: 12px;
-            margin-bottom: 15px;
+            display: inline-block;
+            margin: 10px 0 15px;
             position: relative;
             z-index: 2;
         }
 
         .wechat-qr-area img {
-            width: 110px;
-            height: 110px;
+            width: 180px;
+            height: 180px;
             display: block;
-            border-radius: 2px;
+            border-radius: 4px;
             mix-blend-mode: multiply;
-        }
-
-        .wechat-id-text {
-            font-size: 0.85rem;
-            color: #a39281;
-            margin-top: 5px;
-            font-family: 'Outfit', sans-serif;
-            letter-spacing: 0.5px;
-            position: relative;
-            z-index: 2;
-            font-weight: 300;
         }
 
         .social-buttons {
@@ -375,7 +347,6 @@
             letter-spacing: 0.5px;
         }
 
-        .social-btn.wechat:hover,
         .social-btn.xiaohongshu:hover,
         .social-btn.instagram:hover {
             color: #c48c65;
@@ -880,7 +851,7 @@
         // ──────────────────────────────────────────────
         const pageTranslations = {
             ko: {
-                headerTitle: '오브래쉬 AUBE',
+                headerTitle: '오브래쉬',
                 headerSubtitle: '제주 속눈썹 펌 · 연장 전문 | 눈 뜨자마자 속눈썹이 숲처럼',
                 navIntro: '소개',
                 navNotice: '안내문',
@@ -926,7 +897,7 @@
                 footerInfo: 'Tel: 010-7365-0623 | 영업시간: 오전 10시부터 (예약제)'
             },
             en: {
-                headerTitle: 'AUBE Lash Studio',
+                headerTitle: 'Lash Studio',
                 headerSubtitle: 'Jeju Eyelash Perm & Extension Specialist | Lush lashes from the moment you wake',
                 navIntro: 'About',
                 navNotice: 'Notice',
@@ -968,7 +939,7 @@
                 footerInfo: 'Tel: 010-7365-0623 | Hours: From 10 AM (Reservation Only)'
             },
             zh: {
-                headerTitle: 'AUBE 美睫沙龙',
+                headerTitle: '美睫沙龙',
                 headerSubtitle: '济州睫毛烫与延长专业 | 一睁眼就有浓密睫毛',
                 navIntro: '介绍',
                 navNotice: '公告',
@@ -1153,18 +1124,22 @@
         // — WeChat & Social Section —
         const wechatSection = createElement('section', { id: 'wechat', class: 'wechat-section fade-in' });
         wechatSection.innerHTML = `
-      <h3 data-translate="wechatTitle">${pageTranslations[pageLang].wechatTitle}</h3>
-      <p class="wechat-desc" data-translate="wechatDesc">${pageTranslations[pageLang].wechatDesc}</p>
+      <div class="brand-header" style="text-align: center; margin-bottom: 30px;">
+        <img src="aube-logo.png" alt="AUBE Logo" style="max-height: 45px; margin-bottom: 12px; opacity: 0.85;">
+        <div class="brand-subtitle" style="font-family: 'Outfit', sans-serif; font-size: 0.7rem; font-weight: 400; letter-spacing: 0.3em; color: #a39281;">BEAUTY & RELAXATION</div>
+        <div class="brand-divider" style="margin: 15px auto 0; color: #d6a77a; font-size: 0.8rem;">✦</div>
+      </div>
+      
+      <h3 data-translate="wechatTitle" style="margin-bottom: 10px; font-family: 'Cormorant Garamond', 'Noto Serif KR', serif; font-size: 1.4rem; color: #8e6d50; font-weight: 400;">${pageTranslations[pageLang].wechatTitle}</h3>
+      <p class="wechat-desc" data-translate="wechatDesc" style="margin-bottom: 35px; font-size: 0.95rem; color: #8c7f72;">${pageTranslations[pageLang].wechatDesc}</p>
+      
       <div class="wechat-qr-area">
         <img src="wechat-qr.jpg" alt="WeChat QR">
       </div>
-      <!-- TODO: WeChat ID가 확정되면 아래 텍스트를 업데이트하세요 -->
-      <p class="wechat-id-text" data-translate="wechatIdLabel">${pageTranslations[pageLang].wechatIdLabel}</p>
+      
+      <div class="brand-divider" style="margin: 15px auto 25px; color: #d6a77a; font-size: 0.6rem;">✦</div>
+      
       <div class="social-buttons">
-        <button class="social-btn wechat" onclick="alert('WeChat QR 코드를 스캔해주세요.')" data-translate="wechatBtn">
-          💬 ${pageTranslations[pageLang].wechatBtn}
-        </button>
-        <!-- TODO: Xiaohongshu 실제 URL이 확정되면 href="#" 부분을 교체하세요 -->
         <a href="#" class="social-btn xiaohongshu" target="_blank" rel="noopener noreferrer" data-translate="xiaohongshuBtn">
           📕 ${pageTranslations[pageLang].xiaohongshuBtn}
         </a>

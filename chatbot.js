@@ -24,9 +24,16 @@
     const MAX_HISTORY = 5;
 
     // Expose language change function to window for page-level syncing
+    let isLangSyncing = false;
     window.changeChatbotLanguage = function (lang) {
+        if (isLangSyncing) return;
         if (['ko', 'en', 'zh'].includes(lang) && lang !== chatLang) {
-            changeChatLang(lang);
+            isLangSyncing = true;
+            try {
+                changeChatLang(lang);
+            } finally {
+                isLangSyncing = false;
+            }
         }
     };
 
@@ -320,6 +327,7 @@
     //  UI: Change Chat Language
     // ──────────────────────────────────────────────
     function changeChatLang(lang) {
+        if (lang === chatLang) return; // Prevent redundant update
         chatLang = lang;
 
         // Update active button

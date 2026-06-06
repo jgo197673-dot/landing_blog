@@ -840,19 +840,27 @@
             });
         }
 
+        let isLangSyncing = false;
         function setLang(lang) {
-            currentLang = lang;
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-            });
-            window.currentLang = lang;
+            if (lang === currentLang) return; // Prevent redundant update / loops
+            if (isLangSyncing) return;
+            isLangSyncing = true;
+            try {
+                currentLang = lang;
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+                });
+                window.currentLang = lang;
 
-            // Sync language with chatbot if loaded
-            if (typeof window.changeChatbotLanguage === 'function') {
-                window.changeChatbotLanguage(lang);
+                // Sync language with chatbot if loaded
+                if (typeof window.changeChatbotLanguage === 'function') {
+                    window.changeChatbotLanguage(lang);
+                }
+                
+                render();
+            } finally {
+                isLangSyncing = false;
             }
-            
-            render();
         }
 
         function initMap() {

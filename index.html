@@ -890,13 +890,21 @@
         // ──────────────────────────────────────────────
         //  다국어 전환
         // ──────────────────────────────────────────────
+        let isLangSyncing = false;
         function changePageLang(lang) {
-            window.pageLang = lang;
-            document.documentElement.lang = lang;
-            
-            // Sync language with chatbot if loaded
-            if (typeof window.changeChatbotLanguage === 'function') {
-                window.changeChatbotLanguage(lang);
+            if (lang === window.pageLang) return; // Prevent redundant update / loops
+            if (isLangSyncing) return;
+            isLangSyncing = true;
+            try {
+                window.pageLang = lang;
+                document.documentElement.lang = lang;
+                
+                // Sync language with chatbot if loaded
+                if (typeof window.changeChatbotLanguage === 'function') {
+                    window.changeChatbotLanguage(lang);
+                }
+            } finally {
+                isLangSyncing = false;
             }
             
             // 언어 버튼 활성화 상태 업데이트

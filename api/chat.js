@@ -172,7 +172,19 @@ IMPORTANT: Your entire response must be valid JSON. Do not include any text befo
 
         // Parse JSON response from Gemini
         try {
-            const parsed = JSON.parse(rawReply.trim());
+            let cleanedReply = rawReply.trim();
+            // Remove markdown JSON code blocks if present
+            if (cleanedReply.startsWith('```json')) {
+                cleanedReply = cleanedReply.substring(7);
+            } else if (cleanedReply.startsWith('```')) {
+                cleanedReply = cleanedReply.substring(3);
+            }
+            if (cleanedReply.endsWith('```')) {
+                cleanedReply = cleanedReply.substring(0, cleanedReply.length - 3);
+            }
+            cleanedReply = cleanedReply.trim();
+
+            const parsed = JSON.parse(cleanedReply);
             return res.status(200).json({
                 answer: (parsed.answer || '').trim() || fallbackMsg[lang] || fallbackMsg.ko,
                 needsContact: parsed.needsContact === true

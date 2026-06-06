@@ -894,6 +894,11 @@
             window.pageLang = lang;
             document.documentElement.lang = lang;
             
+            // Sync language with chatbot if loaded
+            if (typeof window.changeChatbotLanguage === 'function') {
+                window.changeChatbotLanguage(lang);
+            }
+            
             // 언어 버튼 활성화 상태 업데이트
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
@@ -960,14 +965,20 @@
         // ──────────────────────────────────────────────
         document.addEventListener('click', function(e) {
             const link = e.target.closest('a');
-            if (!link) return;
-            const href = link.href || '';
-            if (href.includes('booking.naver.com')) {
-                if (typeof gtag === 'function') gtag('event', 'booking_click', { language: window.pageLang });
-            } else if (href.includes('instagram.com')) {
-                if (typeof gtag === 'function') gtag('event', 'instagram_click', { language: window.pageLang });
-            } else if (link.classList.contains('xiaohongshu')) {
-                if (typeof gtag === 'function') gtag('event', 'xiaohongshu_click', { language: window.pageLang });
+            if (link) {
+                const href = link.href || '';
+                if (href.includes('booking.naver.com')) {
+                    if (typeof gtag === 'function') gtag('event', 'booking_click', { language: window.pageLang });
+                } else if (href.includes('instagram.com')) {
+                    if (typeof gtag === 'function') gtag('event', 'instagram_click', { language: window.pageLang });
+                } else if (link.classList.contains('xiaohongshu')) {
+                    if (typeof gtag === 'function') gtag('event', 'xiaohongshu_click', { language: window.pageLang });
+                }
+            }
+
+            // WeChat QR Click/Tap tracking
+            if (e.target.closest('.wechat-qr-area img') || e.target.closest('.wechat-section img')) {
+                if (typeof gtag === 'function') gtag('event', 'wechat_click', { language: window.pageLang });
             }
         });
     </script>

@@ -23,6 +23,13 @@
     let chatHistory = [];
     const MAX_HISTORY = 5;
 
+    // Expose language change function to window for page-level syncing
+    window.changeChatbotLanguage = function (lang) {
+        if (['ko', 'en', 'zh'].includes(lang) && lang !== chatLang) {
+            changeChatLang(lang);
+        }
+    };
+
     // ──────────────────────────────────────────────
     //  Multilingual UI Text
     // ──────────────────────────────────────────────
@@ -264,6 +271,16 @@
             if (!btn) return;
             const lang = btn.getAttribute('data-chatlang');
             if (lang) changeChatLang(lang);
+        });
+
+        // Click on WeChat QR in contact card
+        document.getElementById('aubeChatbotMessages').addEventListener('click', function (e) {
+            if (e.target.closest('.contact-card-qr img')) {
+                trackEvent('wechat_click', {
+                    language: chatLang,
+                    source: 'chatbot_contact_card'
+                });
+            }
         });
     }
 

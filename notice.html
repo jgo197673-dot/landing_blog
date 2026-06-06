@@ -846,6 +846,12 @@
                 btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
             });
             window.currentLang = lang;
+
+            // Sync language with chatbot if loaded
+            if (typeof window.changeChatbotLanguage === 'function') {
+                window.changeChatbotLanguage(lang);
+            }
+            
             render();
         }
 
@@ -862,15 +868,21 @@
     <script>
         document.addEventListener('click', function(e) {
             var link = e.target.closest('a');
-            if (!link) return;
-            var href = link.href || '';
-            if (href.includes('booking.naver.com') || href.includes('naver.com/booking')) {
-                if (typeof gtag === 'function') gtag('event', 'booking_click', { language: window.currentLang, page: 'notice' });
-            } else if (href.includes('instagram.com')) {
-                if (typeof gtag === 'function') gtag('event', 'instagram_click', { language: window.currentLang, page: 'notice' });
-            } else if (link.classList.contains('btn-xiaohongshu')) {
-                if (typeof gtag === 'function') gtag('event', 'xiaohongshu_click', { language: window.currentLang, page: 'notice' });
-            } else if (href.includes('map.naver.com')) {
+            if (link) {
+                var href = link.href || '';
+                if (href.includes('booking.naver.com') || href.includes('naver.com/booking')) {
+                    if (typeof gtag === 'function') gtag('event', 'booking_click', { language: window.currentLang, page: 'notice' });
+                } else if (href.includes('instagram.com')) {
+                    if (typeof gtag === 'function') gtag('event', 'instagram_click', { language: window.currentLang, page: 'notice' });
+                } else if (link.classList.contains('btn-xiaohongshu')) {
+                    if (typeof gtag === 'function') gtag('event', 'xiaohongshu_click', { language: window.currentLang, page: 'notice' });
+                } else if (href.includes('map.naver.com')) {
+                    if (typeof gtag === 'function') gtag('event', 'map_click', { language: window.currentLang, page: 'notice' });
+                }
+            }
+
+            // WeChat QR Click/Tap tracking
+            if (e.target.closest('.wechat-qr-box img') || e.target.closest('.wechat-container img')) {
                 if (typeof gtag === 'function') gtag('event', 'wechat_click', { language: window.currentLang, page: 'notice' });
             }
         });

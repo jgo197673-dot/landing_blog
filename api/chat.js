@@ -1,12 +1,17 @@
 /**
  * AUBE Gemini AI 챗봇 — Vercel Serverless Function
  * 
+ * ★ DOM 기반 pageContent 전용 — 하드코딩된 매장 정보 없음
+ * 
  * 환경변수 설정 (Vercel Dashboard → Settings → Environment Variables):
  *   GEMINI_API_KEY   = Google AI Studio에서 발급받은 API Key
  *   GEMINI_MODEL     = 사용할 모델명 (기본값: gemini-2.5-flash)
  * 
  * 프론트엔드에서 POST /api/chat 으로 요청:
- *   { message: string, lang: 'ko'|'en'|'zh', context: string }
+ *   { message: string, lang: 'ko'|'en'|'zh', pageContent: string, history?: array }
+ * 
+ * 응답 형식:
+ *   { answer: string, needsContact: boolean }
  */
 
 export default async function handler(req, res) {
@@ -26,19 +31,24 @@ export default async function handler(req, res) {
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
         console.error('GEMINI_API_KEY is not set');
-        return res.status(500).json({ error: 'Server configuration error' });
+        return res.status(500).json({
+            answer: 'Server configuration error. Please contact the store directly.',
+            needsContact: true
+        });
     }
 
     // 모델명은 환경변수로 분리 — 추후 gemini-2.5-pro 등으로 쉽게 변경 가능
     const model = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
 
-    const { message, lang = 'ko', context = '' } = req.body || {};
+    const { message, lang = 'ko', pageContent = '', history = [] } = req.body || {};
 
     if (!message || typeof message !== 'string' || message.trim().length === 0) {
         return res.status(400).json({ error: 'Message is required' });
     }
 
-    // 언어별 응답 지시
+    // ──────────────────────────────────────────────
+    //  언어별 응답 지시
+    // ──────────────────────────────────────────────
     const langInstruction = {
         ko: '한국어로 답변해주세요.',
         en: 'Please respond in English.',
@@ -46,69 +56,79 @@ export default async function handler(req, res) {
     };
 
     const fallbackMsg = {
-        ko: '정확한 내용은 매장으로 직접 문의해주세요. (전화: 010-7365-0623)',
-        en: 'For accurate information, please contact the store directly. (Phone: 010-7365-0623)',
-        zh: '如需准确信息，请直接联系门店。(电话: 010-7365-0623)'
+        ko: '정확한 내용은 매장으로 직접 문의해주세요.',
+        en: 'For accurate information, please contact the store directly.',
+        zh: '如需准确信息，请直接联系门店。'
     };
 
-    // 시스템 프롬프트: AUBE 매장 정보 + 안내 데이터 포함
-    const systemPrompt = `당신은 제주도에 위치한 뷰티샵 "오브래쉬 AUBE"의 전용 AI 안내 챗봇입니다.
+    // ──────────────────────────────────────────────
+    //  시스템 프롬프트 — pageContent 전용
+    //  ★ 매장 정보 하드코딩 없음
+    //  ★ 프론트에서 전달받은 pageContent만 사용
+    // ──────────────────────────────────────────────
+    const systemPrompt = `You are the official multilingual customer guide for AUBE (오브래쉬), a beauty salon in Jeju, South Korea.
 
-## 매장 기본 정보
-- 매장명: 오브래쉬 AUBE
-- 주소: 제주특별자치도 제주시 연북로 158 2층
-- 전화: 010-7365-0623
-- 운영시간: 오전 10시부터 운영, 예약제 중심
-- 위치 팁: 연동 중앙버스정류장에서 도보 약 3분
+## Your Knowledge Source
+Your ONLY source of information is the "Page Content" provided below. This content is extracted from the current webpage the customer is viewing.
 
-## 주요 서비스
-- 속눈썹 펌
-- 속눈썹 연장
-- LED 포인트 연장
-- 뷰티 케어
+## Page Content
+${pageContent || '(No page content provided)'}
 
-## 예약/문의
-- WeChat 문의 가능
-- 전화 문의: 010-7365-0623
-- 네이버 예약 가능: https://booking.naver.com/booking/13/bizes/1011635?theme=place&entry=pll&lang=ko&area=pll
-- 100% 예약제 운영, 당일 예약 문의 가능
-
-## 주차
-- 전용 주차장은 없으나, 건물 앞 공영주차장 이용 가능 (1시간 무료)
-
-## 매장 이용 안내
-- 큰 소리의 대화 자제
-- 휴대전화 통화 자제
-- 다른 고객을 위한 편안한 분위기 유지 협조
-
-## CCTV 안내
-- 고객 안전을 위해 CCTV 운영 중
-
-## 현재 페이지 공지/안내 데이터
-${context}
-
-## 응답 규칙
+## Response Rules
 1. ${langInstruction[lang] || langInstruction.ko}
-2. 위 정보에 포함된 내용만 답변하세요.
-3. 확실하지 않거나 위 정보에 없는 내용은 절대 추측하지 마세요.
-4. 모르는 내용은 반드시 다음과 같이 답변하세요: "${fallbackMsg[lang] || fallbackMsg.ko}"
-5. 친절하고 전문적인 뷰티샵 직원처럼 답변하세요.
-6. 답변은 간결하게 2~4문장 이내로 해주세요.
-7. 가격 관련 질문은 정확한 금액을 언급하지 말고, 매장 문의를 안내하세요.`;
+2. Answer ONLY based on the Page Content above. This is your single source of truth.
+3. Do NOT guess, assume, or invent any information.
+4. Do NOT generate prices, fees, or cost estimates.
+5. Do NOT generate policies or rules not explicitly stated in Page Content.
+6. Do NOT generate service details not present in Page Content.
+7. Keep responses concise and helpful (2-4 sentences).
+8. Be warm and professional, like a premium beauty salon concierge.
+9. When relevant, guide users to booking, location, WeChat, Instagram, or notice information available in the Page Content.
+10. If the customer's question CANNOT be answered from the Page Content, you MUST set needsContact to true.
+
+## Response Format
+You MUST respond in this exact JSON format and nothing else:
+{"answer": "Your helpful response here", "needsContact": false}
+
+- Set needsContact to false when you CAN answer from Page Content.
+- Set needsContact to true when you CANNOT answer from Page Content (e.g., specific pricing, unavailable info, policy details not on page).
+- When needsContact is true, your answer should politely explain that the information is not available on the current page and suggest contacting the store directly.
+  - Korean: "해당 내용은 현재 안내 페이지에서 확인되지 않습니다. 정확한 상담을 위해 AUBE로 직접 문의해 주세요."
+  - English: "This information is not available on the current page. For accurate assistance, please contact AUBE directly."
+  - Chinese: "该信息在当前页面上无法确认。如需准确咨询，请直接联系AUBE。"
+
+IMPORTANT: Your entire response must be valid JSON. Do not include any text before or after the JSON object.`;
 
     try {
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+
+        // Build contents array with history + current message
+        const contents = [];
+
+        // Add conversation history (limited)
+        if (Array.isArray(history) && history.length > 0) {
+            const recentHistory = history.slice(-MAX_HISTORY_ITEMS);
+            recentHistory.forEach(h => {
+                if (h.role && h.parts) {
+                    contents.push({
+                        role: h.role,
+                        parts: h.parts
+                    });
+                }
+            });
+        }
+
+        // Add current user message
+        contents.push({
+            role: 'user',
+            parts: [{ text: message }]
+        });
 
         const geminiResponse = await fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                contents: [
-                    {
-                        role: 'user',
-                        parts: [{ text: message }]
-                    }
-                ],
+                contents: contents,
                 systemInstruction: {
                     parts: [{ text: systemPrompt }]
                 },
@@ -116,7 +136,8 @@ ${context}
                     temperature: 0.3,
                     maxOutputTokens: 500,
                     topP: 0.8,
-                    topK: 20
+                    topK: 20,
+                    responseMimeType: 'application/json'
                 },
                 safetySettings: [
                     { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
@@ -130,28 +151,49 @@ ${context}
         if (!geminiResponse.ok) {
             const errorData = await geminiResponse.text();
             console.error('Gemini API error:', geminiResponse.status, errorData);
-            return res.status(502).json({ 
-                reply: fallbackMsg[lang] || fallbackMsg.ko 
+            return res.status(502).json({
+                answer: fallbackMsg[lang] || fallbackMsg.ko,
+                needsContact: true
             });
         }
 
         const data = await geminiResponse.json();
-        
-        // Gemini 응답에서 텍스트 추출
-        const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
-        if (!reply) {
+        // Gemini 응답에서 텍스트 추출
+        const rawReply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+        if (!rawReply) {
             console.error('No reply from Gemini:', JSON.stringify(data));
-            return res.status(200).json({ 
-                reply: fallbackMsg[lang] || fallbackMsg.ko 
+            return res.status(200).json({
+                answer: fallbackMsg[lang] || fallbackMsg.ko,
+                needsContact: true
             });
         }
 
-        return res.status(200).json({ reply: reply.trim() });
+        // Parse JSON response from Gemini
+        try {
+            const parsed = JSON.parse(rawReply.trim());
+            return res.status(200).json({
+                answer: (parsed.answer || '').trim() || fallbackMsg[lang] || fallbackMsg.ko,
+                needsContact: parsed.needsContact === true
+            });
+        } catch (parseErr) {
+            // If Gemini didn't return valid JSON, use raw text as answer
+            console.warn('Gemini response was not valid JSON, using raw text:', rawReply);
+            return res.status(200).json({
+                answer: rawReply.trim(),
+                needsContact: false
+            });
+        }
+
     } catch (error) {
         console.error('Server error:', error);
-        return res.status(500).json({ 
-            reply: fallbackMsg[lang] || fallbackMsg.ko 
+        return res.status(500).json({
+            answer: fallbackMsg[lang] || fallbackMsg.ko,
+            needsContact: true
         });
     }
 }
+
+// Maximum history items to include in API call
+const MAX_HISTORY_ITEMS = 10;

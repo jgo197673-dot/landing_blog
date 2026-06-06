@@ -493,11 +493,26 @@
 
             removeTypingIndicator();
 
-            if (!response.ok) {
-                throw new Error('API Error: ' + response.status);
+            let data = null;
+            try {
+                data = await response.json();
+            } catch (jsonErr) {
+                // Response body is not valid JSON
             }
 
-            const data = await response.json();
+            if (!response.ok) {
+                // If backend returned a valid fallback JSON answer under 500/502 status, display it
+                if (data && (data.answer || data.reply)) {
+                    const fallbackAnswer = data.answer || data.reply;
+                    addBotMessage(fallbackAnswer);
+                    addToHistory('model', fallbackAnswer);
+                    if (data.needsContact === true) {
+                        renderContactCard();
+                    }
+                    return;
+                }
+                throw new Error('API Error: ' + response.status);
+            }
 
             // Handle structured response
             let answer = '';

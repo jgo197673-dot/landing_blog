@@ -17,7 +17,7 @@ AUBE/
 ├── script.js           # 외부 JS (레거시)
 ├── aube-logo.png       # 로고 이미지
 ├── hero-bg.jpg         # 히어로 배경 이미지
-├── wechat-qr.jpg       # WeChat QR 코드
+├── wechat-qr.png       # WeChat QR 코드
 ├── vercel.json         # Vercel 배포 설정
 ├── .env.example        # 환경변수 템플릿
 ├── .gitignore
@@ -152,7 +152,7 @@ npx vercel dev
 
 ## 📱 WeChat QR 코드 교체 방법
 
-1. QR 코드 이미지를 `wechat-qr.jpg` 파일명으로 프로젝트 루트에 저장
+1. QR 코드 이미지를 `wechat-qr.png` 파일명으로 프로젝트 루트에 저장
 2. 자동으로 메인/안내문 페이지 + 챗봇 Contact Card에 반영
 
 ## 📕 Xiaohongshu(小红书) URL 교체 방법

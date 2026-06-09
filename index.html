@@ -6,6 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>오브래쉬 AUBE | 제주 속눈썹 펌 &amp; 연장 전문</title>
     <meta name="description" content="제주 연동에 위치한 속눈썹 펌 &amp; LED 포인트 연장 전문샵 오브래쉬. 자연스러우면서도 확실히 다른 눈매를 경험하세요.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aube.vercel.app/" />
+    <meta property="og:title" content="AUBE 오브래쉬" />
+    <meta property="og:description" content="제주 외국인 고객을 위한 AUBE 안내 웹앱" />
+    <meta property="og:image" content="https://aube.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://aube.vercel.app/" />
+    <meta property="twitter:title" content="AUBE 오브래쉬" />
+    <meta property="twitter:description" content="제주 외국인 고객을 위한 AUBE 안내 웹앱" />
+    <meta property="twitter:image" content="https://aube.vercel.app/og-image.png" />
+
     <!-- Google tag (gtag.js) — GA4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J5FMRSZSW"></script>
     <script>
@@ -368,6 +385,13 @@
             box-shadow: none;
         }
 
+        .social-wrapper {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
         /* ===== Notice Cards ===== */
         .notice-card {
             background: #ffffff;
@@ -546,6 +570,11 @@
                 align-items: center;
             }
 
+            .social-wrapper {
+                width: 100%;
+                max-width: 280px;
+            }
+
             .social-btn {
                 width: 100%;
                 max-width: 280px;
@@ -604,6 +633,7 @@
                 wechatIdLabel: 'WeChat ID: 준비 중',
                 wechatBtn: 'WeChat 문의',
                 xiaohongshuBtn: '小红书 (Xiaohongshu)',
+                xiaohongshuTip: '연결 예정',
                 instagramBtn: 'Instagram',
                 // Notice Section
                 noticeTitle: '매장 이용 안내',
@@ -649,6 +679,7 @@
                 wechatIdLabel: 'WeChat ID: Coming Soon',
                 wechatBtn: 'WeChat Inquiry',
                 xiaohongshuBtn: 'Xiaohongshu (小红书)',
+                xiaohongshuTip: 'Coming Soon',
                 instagramBtn: 'Instagram',
                 noticeTitle: 'Store Guidelines',
                 noticeEtiquette: 'Etiquette',
@@ -691,6 +722,7 @@
                 wechatIdLabel: '微信ID: 即将推出',
                 wechatBtn: '微信咨询',
                 xiaohongshuBtn: '小红书',
+                xiaohongshuTip: '待连接',
                 instagramBtn: 'Instagram',
                 noticeTitle: '门店须知',
                 noticeEtiquette: '入店礼仪',
@@ -808,15 +840,18 @@
       <p class="wechat-desc" data-translate="wechatDesc" style="margin-bottom: 35px; font-size: 0.95rem; color: #8c7f72;">${pageTranslations[window.pageLang].wechatDesc}</p>
       
       <div class="wechat-qr-area">
-        <img src="wechat-qr.jpg" alt="WeChat QR">
+        <img src="wechat-qr.png" alt="WeChat QR">
       </div>
       
       <div class="brand-divider" style="margin: 15px auto 25px; color: #d6a77a; font-size: 0.6rem;">✦</div>
       
       <div class="social-buttons">
-        <a href="#" class="social-btn xiaohongshu" target="_blank" rel="noopener noreferrer" data-translate="xiaohongshuBtn">
-          📕 ${pageTranslations[window.pageLang].xiaohongshuBtn}
-        </a>
+        <div class="social-wrapper">
+          <a href="#" class="social-btn xiaohongshu" target="_blank" rel="noopener noreferrer" data-translate="xiaohongshuBtn">
+            📕 ${pageTranslations[window.pageLang].xiaohongshuBtn}
+          </a>
+          <span style="font-size: 0.72rem; color: #a39281;" data-translate="xiaohongshuTip">${pageTranslations[window.pageLang].xiaohongshuTip}</span>
+        </div>
         <a href="https://www.instagram.com/aube_lash_/" class="social-btn instagram" target="_blank" rel="noopener noreferrer" data-translate="instagramBtn">
           📷 ${pageTranslations[window.pageLang].instagramBtn}
         </a>

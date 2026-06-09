@@ -94,7 +94,7 @@
     const contactDefaults = {
         phone: '010-7365-0623',
         instagram: 'https://www.instagram.com/aube_lash_/',
-        wechatQR: 'wechat-qr.jpg'
+        wechatQR: 'wechat-qr.png'
     };
 
     // ──────────────────────────────────────────────

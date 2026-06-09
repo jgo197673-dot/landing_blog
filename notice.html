@@ -7,9 +7,22 @@
     <title>Notice / 안내문 / 公告 — AUBE</title>
     <meta name="description"
         content="오브래쉬 AUBE 매장 안내문 — WeChat 문의, 예약제 안내, CCTV 운영. Store guidelines, WeChat inquiry, CCTV notice.">
-    <meta property="og:title" content="AUBE Notice / 안내문 / 公告" />
-    <meta property="og:description" content="오브래쉬 AUBE 매장 안내 — WeChat, 예약 가이드, CCTV" />
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aube.vercel.app/notice.html" />
+    <meta property="og:title" content="AUBE 오브래쉬" />
+    <meta property="og:description" content="제주 외국인 고객을 위한 AUBE 안내 웹앱" />
+    <meta property="og:image" content="https://aube.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://aube.vercel.app/notice.html" />
+    <meta property="twitter:title" content="AUBE 오브래쉬" />
+    <meta property="twitter:description" content="제주 외국인 고객을 위한 AUBE 안내 웹앱" />
+    <meta property="twitter:image" content="https://aube.vercel.app/og-image.png" />
+
     <!-- Google tag (gtag.js) — GA4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J5FMRSZSW"></script>
     <script>
@@ -380,6 +393,13 @@
             flex-wrap: wrap;
         }
 
+        .btn-wrapper {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
         .btn {
             display: inline-block;
             background: #c48c65;
@@ -523,6 +543,10 @@
                 gap: 10px;
             }
 
+            .btn-wrapper {
+                width: 100%;
+            }
+
             .btn {
                 width: 100%;
                 box-sizing: border-box;
@@ -569,7 +593,7 @@
                 <div class="wechat-container" style="gap: 20px;">
                     <div class="wechat-qr-side">
                         <div class="wechat-qr-box">
-                            <img src="wechat-qr.jpg" alt="WeChat QR Code">
+                            <img src="wechat-qr.png" alt="WeChat QR Code">
                         </div>
                     </div>
                     <div class="brand-divider" style="margin: 5px auto 10px; color: #d6a77a; font-size: 0.6rem;">✦</div>
@@ -685,6 +709,7 @@
                 },
                 visit: {
                     title: 'Visit & Booking',
+                    xiaohongshuTip: '연결 예정',
                     info: [
                         '<strong>주소</strong>: 제주 제주시 연북로 158, 2층',
                         '<strong>예약문의</strong>: <a href="tel:010-7365-0623" style="color:#c48c65;text-decoration:none;">010-7365-0623</a>',
@@ -693,7 +718,7 @@
                     buttons: [
                         { text: 'Instagram', href: 'https://www.instagram.com/aube_lash_/' },
                         /* TODO: Xiaohongshu 실제 URL이 확정되면 href를 교체하세요 */
-                        { text: '小红书 (Xiaohongshu)', href: '#', class: 'btn-xiaohongshu' },
+                        { text: '小红书 (Xiaohongshu)', href: '#', class: 'btn-xiaohongshu', hasTip: true },
                         { text: 'Naver Map', href: 'https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%20%EC%A0%9C%EC%A3%BC%EC%8B%9C%20%EC%97%B0%EB%8F%99%20%EC%97%B0%EB%B6%81%EB%A1%9C%20158', outline: true }
                     ]
                 }
@@ -726,6 +751,7 @@
                 },
                 visit: {
                     title: 'Visit & Booking',
+                    xiaohongshuTip: 'Coming Soon',
                     info: [
                         '<strong>Address</strong>: 2F, 158 Yeonbuk-ro, Jeju City',
                         '<strong>Booking</strong>: <a href="tel:010-7365-0623" style="color:#c48c65;text-decoration:none;">010-7365-0623</a>',
@@ -734,7 +760,7 @@
                     buttons: [
                         { text: 'Instagram', href: 'https://www.instagram.com/aube_lash_/' },
                         /* TODO: Replace href with actual Xiaohongshu URL */
-                        { text: 'Xiaohongshu (小红书)', href: '#', class: 'btn-xiaohongshu' },
+                        { text: 'Xiaohongshu (小红书)', href: '#', class: 'btn-xiaohongshu', hasTip: true },
                         { text: 'Naver Map', href: 'https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%20%EC%A0%9C%EC%A3%BC%EC%8B%9C%20%EC%97%B0%EB%8F%99%20%EC%97%B0%EB%B6%81%EB%A1%9C%20158', outline: true }
                     ]
                 }
@@ -767,6 +793,7 @@
                 },
                 visit: {
                     title: 'Visit & Booking',
+                    xiaohongshuTip: '待连接',
                     info: [
                         '<strong>地址</strong>: 济州市莲北路158号2楼',
                         '<strong>预约</strong>: <a href="tel:010-7365-0623" style="color:#c48c65;text-decoration:none;">010-7365-0623</a>',
@@ -775,7 +802,7 @@
                     buttons: [
                         { text: 'Instagram', href: 'https://www.instagram.com/aube_lash_/' },
                         /* TODO: 确认小红书URL后替换href */
-                        { text: '小红书', href: '#', class: 'btn-xiaohongshu' },
+                        { text: '小红书', href: '#', class: 'btn-xiaohongshu', hasTip: true },
                         { text: 'Naver Map', href: 'https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%20%EC%A0%9C%EC%A3%BC%EC%8B%9C%20%EC%97%B0%EB%8F%99%20%EC%97%B0%EB%B6%81%EB%A1%9C%20158', outline: true }
                     ]
                 }
@@ -836,7 +863,23 @@
                 if (btn.class) classes += ' ' + btn.class;
                 a.className = classes;
                 a.textContent = btn.text;
-                ctaButtons.appendChild(a);
+                
+                if (btn.hasTip) {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'btn-wrapper';
+                    wrapper.appendChild(a);
+                    
+                    const tip = document.createElement('span');
+                    tip.style.fontSize = '0.72rem';
+                    tip.style.color = '#a39281';
+                    tip.style.marginTop = '4px';
+                    tip.textContent = c.visit.xiaohongshuTip;
+                    wrapper.appendChild(tip);
+                    
+                    ctaButtons.appendChild(wrapper);
+                } else {
+                    ctaButtons.appendChild(a);
+                }
             });
         }
 
